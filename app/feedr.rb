@@ -1,3 +1,4 @@
+require 'feedr/models/feed'
 require 'feedr/models/entry'
 require 'feedr/views/layout'
 
@@ -15,3 +16,4 @@ module Feedr
 end
 
 require 'feedr/controllers/index'
+require 'feedr/controllers/feed'
