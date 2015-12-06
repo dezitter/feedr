@@ -1,4 +1,4 @@
 module Feedr
-  class Feed
+  class Feed < Sequel::Model
   end
 end

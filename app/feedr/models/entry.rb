@@ -1,13 +1,4 @@
 module Feedr
-  class Entry
-
-    def self.all
-      [
-        { :title => 'Foo' },
-        { :title => 'Bar' },
-        { :title => 'Quz' }
-      ]
-    end
-
+  class Entry < Sequel::Model
   end
 end

@@ -1,3 +1,7 @@
+require 'yaml'
+
+Sequel.connect(YAML.load_file('./config/database.yml'))
+
 require 'feedr/models/feed'
 require 'feedr/models/entry'
 require 'feedr/views/layout'
