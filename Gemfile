@@ -6,6 +6,7 @@ gem 'sequel'
 gem 'sinatra',          :require => 'sinatra/base'
 gem 'mustache-sinatra', :require => 'mustache/sinatra'
 gem 'feedjira'
+gem 'ruby-readability', :require => 'readability'
 
 group :development do
   gem 'rb-readline'
