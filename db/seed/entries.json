@@ -1,5 +1,5 @@
 [
-    { "title": "Foo",   "url": "http://www.example.com/foo" },
-    { "title": "Bar",   "url": "http://www.example.com/bar" },
-    { "title": "Quz",   "url": "http://www.example.com/quz" }
+    { "feed_id": 1, "title": "Foo", "url": "http://www.example.com/foo" },
+    { "feed_id": 1, "title": "Bar", "url": "http://www.example.com/bar" },
+    { "feed_id": 1, "title": "Quz", "url": "http://www.example.com/quz" }
 ]

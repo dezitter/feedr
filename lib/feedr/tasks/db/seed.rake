@@ -5,7 +5,8 @@ namespace :db do
 
   desc 'insert some initial records into the database'
   task :seed do
-    data = Dir.glob('./db/seed/*.json').map do |file_name|
+    seed_files = ['feeds', 'entries'].map { |f| "./db/seed/#{f}.json"}
+    data = seed_files.map do |file_name|
       {
         table_name: File.basename(file_name, '.json'),
         values: JSON.parse(File.read(file_name))
