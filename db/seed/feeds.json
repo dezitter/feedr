@@ -1,0 +1,5 @@
+[
+    { "title": "Fake Feed",   "url": "http://www.example.com/feed" },
+    { "title": "Hacker News", "url": "https://news.ycombinator.com/rss" },
+    { "title": "NYT",         "url": "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml" }
+]

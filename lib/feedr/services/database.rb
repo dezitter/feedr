@@ -20,6 +20,17 @@ module Feedr
         end
       end
 
+      def seed(seeds)
+        connect do |db|
+          seeds.each { |s| seed_table(db, s[:table_name], s[:values]) }
+        end
+      end
+
+    private
+      def seed_table(db, table, hashes)
+        db.from(table).multi_insert(hashes)
+      end
+
     end
   end
 end
