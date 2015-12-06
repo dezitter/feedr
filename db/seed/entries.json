@@ -1,0 +1,5 @@
+[
+    { "title": "Foo",   "url": "http://www.example.com/foo" },
+    { "title": "Bar",   "url": "http://www.example.com/bar" },
+    { "title": "Quz",   "url": "http://www.example.com/quz" }
+]
