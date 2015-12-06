@@ -1,0 +1,9 @@
+{{^entries}}
+  <p>No entries!</p>
+{{/entries}}
+
+<ul>
+  {{#entries}}
+    {{> partials/entry/item}}
+  {{/entries}}
+</ul>

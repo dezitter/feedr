@@ -3,7 +3,13 @@ module Feedr
 
     get '/' do
       @title = 'Home'
-      mustache :index
+      mustache :index, :locals => {
+        entries: [
+          { :title => 'Foo' },
+          { :title => 'Bar' },
+          { :title => 'Quz' }
+        ]
+      }
     end
 
   end
