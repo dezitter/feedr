@@ -10,10 +10,7 @@ module Feedr
       :namespace => Feedr
     }
 
-    get '/' do
-      @title = 'Home'
-      mustache :index
-    end
-
   end
 end
+
+require 'feedr/controllers/index'
