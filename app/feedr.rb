@@ -1,3 +1,4 @@
+require 'feedr/models/entry'
 require 'feedr/views/layout'
 
 module Feedr
