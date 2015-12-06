@@ -17,5 +17,13 @@ module Feedr
       }
     end
 
+    get '/feed/:id' do |id|
+      feed = Feed[id]
+      entries = Entry.where(feed_id: id).map { |e| e.values }
+
+      locals = feed.values.merge(entries: entries)
+      mustache :feed, :locals => locals
+    end
+
   end
 end
