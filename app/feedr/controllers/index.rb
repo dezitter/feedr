@@ -4,7 +4,7 @@ module Feedr
     get '/' do
       @title = 'Home'
       mustache :index, :locals => {
-        :entries => Entry.all.map { |e| e.values }
+        :entries => Entry.order(Sequel.desc(:published)).all.map { |e| e.values }
       }
     end
 

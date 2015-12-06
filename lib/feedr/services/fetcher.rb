@@ -23,7 +23,8 @@ module Feedr
     def parse_entry(entry)
       {
         title: entry.title,
-        url: entry.url
+        url: entry.url,
+        published: entry.published
       }
     end
 
