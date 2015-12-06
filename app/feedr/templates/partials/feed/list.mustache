@@ -1,0 +1,10 @@
+{{^feeds}}
+  <p>No Feeds!</p>
+{{/feeds}}
+
+<ul>
+  {{#feeds}}
+    {{> partials/feed/item}}
+  {{/feeds}}
+</ul>
+
