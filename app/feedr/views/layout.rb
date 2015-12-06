@@ -6,6 +6,13 @@ module Feedr
         @title || 'Feedr'
       end
 
+      def menu_items
+        [
+          { name: 'Home',  route: '/' },
+          { name: 'Feeds', route: '/feeds' }
+        ]
+      end
+
     end
   end
 end
