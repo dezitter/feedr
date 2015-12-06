@@ -26,6 +26,11 @@ module Feedr
         end
       end
 
+      def drop
+        filename = @configuration['database']
+        FileUtils.rm(filename) if File.exist?(filename)
+      end
+
     private
       def seed_table(db, table, hashes)
         db.from(table).multi_insert(hashes)
