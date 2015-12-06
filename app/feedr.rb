@@ -22,3 +22,4 @@ end
 
 require 'feedr/controllers/index'
 require 'feedr/controllers/feed'
+require 'feedr/controllers/entry'
