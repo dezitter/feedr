@@ -40,6 +40,7 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    rake (0.9.6)
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -66,6 +67,7 @@ DEPENDENCIES
   mustache-sinatra
   pry
   pry-byebug
+  rake
   rb-readline
   sequel
   sinatra
