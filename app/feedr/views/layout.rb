@@ -8,7 +8,6 @@ module Feedr
 
       def menu_items
         [
-          { name: 'Home',  route: '/' },
           { name: 'Feeds', route: '/feeds' }
         ]
       end

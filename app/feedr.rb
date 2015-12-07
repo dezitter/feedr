@@ -18,6 +18,8 @@ module Feedr
       :namespace => Feedr
     }
 
+    set :public_folder, File.join(File.dirname(__FILE__), 'feedr', 'public')
+
   end
 end
 
