@@ -12,6 +12,7 @@ group :development do
   gem 'rb-readline'
   gem 'guard'
   gem 'guard-rack'
+  gem 'guard-livereload'
   gem 'pry'
   gem 'pry-byebug'
 end
