@@ -5,7 +5,7 @@ module Feedr
       def add(url)
         raw_feed = Services::Fetcher.new.fetch(url)
         feed = Feed.create({
-          url: raw_feed[:url],
+          url: url,
           title: raw_feed[:title]
         })
 
