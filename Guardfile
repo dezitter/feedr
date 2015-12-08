@@ -4,7 +4,7 @@ notification :off
 guard 'rack' do
   watch('config.ru')
   watch('Gemfile.lock')
-  watch(%r{^(config|lib|app)/.+\.rb$})
+  watch(%r{^(config|app)/.+\.rb$})
 end
 
 guard 'livereload' do

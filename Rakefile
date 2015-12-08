@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../app', __FILE__)
 
 require 'yaml'
 
@@ -11,13 +11,13 @@ PATHS = {
   }
 }
 
-load './lib/feedr/tasks/build.rake'
+load 'app/feedr/tasks/build.rake'
 
-load './lib/feedr/tasks/db/migrate.rake'
-load './lib/feedr/tasks/db/seed.rake'
-load './lib/feedr/tasks/db/drop.rake'
+load 'app/feedr/tasks/db/migrate.rake'
+load 'app/feedr/tasks/db/seed.rake'
+load 'app/feedr/tasks/db/drop.rake'
 
-load './lib/feedr/tasks/css/build.rake'
-load './lib/feedr/tasks/css/clean.rake'
-load './lib/feedr/tasks/css/compile.rake'
-load './lib/feedr/tasks/css/symlink_assets.rake'
+load 'app/feedr/tasks/css/build.rake'
+load 'app/feedr/tasks/css/clean.rake'
+load 'app/feedr/tasks/css/compile.rake'
+load 'app/feedr/tasks/css/symlink_assets.rake'
