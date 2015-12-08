@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rake'
+gem 'sass'
+
 gem 'sqlite3'
 gem 'sequel'
+
 gem 'sinatra',          :require => 'sinatra/base'
 gem 'mustache-sinatra', :require => 'mustache/sinatra'
+
 gem 'feedjira'
 gem 'ruby-readability', :require => 'readability'
 

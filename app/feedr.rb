@@ -18,7 +18,7 @@ module Feedr
       :namespace => Feedr
     }
 
-    set :public_folder, File.join(File.dirname(__FILE__), 'feedr', 'public')
+    set :public_folder, './dist'
 
   end
 end
