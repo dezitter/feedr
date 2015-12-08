@@ -1,4 +1,6 @@
 @import "partials/navbar";
+@import "partials/_entry_list";
+@import "partials/_feed_list";
 
 html, body {
     height: 100%;
@@ -9,32 +11,6 @@ html, body {
 
 #content {
     margin-top: 2rem;
-}
-
-/* LIST */
-
-.feedr-entry-list {
-    list-style: none;
-}
-
-.feedr-entry-list-item {
-    padding: 1rem;
-    border-radius: 5px;
-    border: 1px solid #eee;
-}
-
-.feedr-entry-link {
-    text-decoration: none;
-}
-
-.feedr-feed-list {
-    list-style: none;
-}
-
-.feedr-feed-list-item {
-    padding: 1rem;
-    border-radius: 5px;
-    border: 1px solid #eee;
 }
 
 /* ENTRY */
