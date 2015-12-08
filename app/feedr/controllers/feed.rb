@@ -1,12 +1,10 @@
-require 'feedr/commands/feed_adder'
-
 module Feedr
   class App < Sinatra::Base
 
     post '/feed' do
-      Commands::FeedAdder.new.add(params[:url])
+      Feed.create(url: params[:url])
 
-      redirect to('/')
+      redirect to('/feeds')
     end
 
     get '/feeds' do
