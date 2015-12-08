@@ -37,6 +37,9 @@ GEM
       ffi
       guard (~> 2.3)
       spoon
+    guard-rake (1.0.0)
+      guard
+      rake
     guess_html_encoding (0.0.11)
     http_parser.rb (0.6.0)
     listen (3.0.5)
@@ -99,6 +102,7 @@ DEPENDENCIES
   guard
   guard-livereload
   guard-rack
+  guard-rake
   mustache-sinatra
   pry
   pry-byebug

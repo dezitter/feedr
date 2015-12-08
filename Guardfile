@@ -8,5 +8,10 @@ guard 'rack' do
 end
 
 guard 'livereload' do
-  watch(%r{^app/feedr/(public|templates)/.*})
+  watch(%r{^dist/css/[^/]*\.css$})
+  watch(%r{^app/feedr/templates/.*\.mustache$})
+end
+
+guard 'rake', :task => 'css:compile' do
+  watch(%r{^app/feedr/public/scss/.*\.scss})
 end
