@@ -2,6 +2,7 @@ clearing :on
 notification :off
 
 guard 'rack' do
+  watch('config.ru')
   watch('Gemfile.lock')
   watch(%r{^(config|lib|app)/.+\.rb$})
 end
