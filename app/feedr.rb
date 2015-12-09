@@ -2,7 +2,6 @@ require 'yaml'
 
 Sequel.connect(YAML.load_file('./config/database.yml'))
 
-require 'feedr/services/fetcher'
 require 'feedr/services/extracter'
 require 'feedr/models/feed'
 require 'feedr/models/entry'
