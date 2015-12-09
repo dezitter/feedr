@@ -6,6 +6,11 @@
     padding: 1rem;
     border-radius: 5px;
     border: $light-border;
+
+    .feedr-entry-date {
+        color: $secondary-color;
+        float: right;
+    }
 }
 
 .feedr-entry-link {

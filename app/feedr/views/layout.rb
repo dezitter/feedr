@@ -1,10 +1,8 @@
+require 'feedr/views/base'
+
 module Feedr
   module Views
-    class Layout < Mustache
-
-      def title
-        @title || 'Feedr'
-      end
+    class Layout < Base
 
       def menu_items
         [
