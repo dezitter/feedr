@@ -2,11 +2,9 @@ module Feedr
   class App < Sinatra::Base
 
     get '/feed/:feed_id/entry/:entry_id' do |feed_id, entry_id|
-      entry = Entry[entry_id]
-      content = Services::Extracter.new.extract(entry.url)
-      locals = entry.values.merge(content: content)
+      entry = EntryRepository.find(entry_id)
 
-      mustache :entry, :locals => locals
+      mustache :entry, :locals => entry
     end
 
   end

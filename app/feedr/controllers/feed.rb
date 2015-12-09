@@ -2,25 +2,21 @@ module Feedr
   class App < Sinatra::Base
 
     post '/feed' do
-      Feed.create(url: params[:url])
+      FeedRepository.create(params[:url])
 
       redirect to('/feeds')
     end
 
     get '/feeds' do
-      @title = 'Feeds'
-
       mustache :feeds, :locals => {
-        :feeds => Feed.all.map { |e| e.values }
+        feeds: FeedRepository.list
       }
     end
 
     get '/feed/:id' do |id|
-      feed = Feed[id]
-      entries = Entry.where(feed_id: id).map { |e| e.values }
+      feed = FeedRepository.find(id)
 
-      locals = feed.values.merge(entries: entries)
-      mustache :feed, :locals => locals
+      mustache :feed, :locals => feed
     end
 
   end

@@ -5,6 +5,8 @@ Sequel.connect(YAML.load_file('./config/database.yml'))
 require 'feedr/services/extracter'
 require 'feedr/models/feed'
 require 'feedr/models/entry'
+require 'feedr/repositories/feed'
+require 'feedr/repositories/entry'
 require 'feedr/views/layout'
 
 module Feedr
