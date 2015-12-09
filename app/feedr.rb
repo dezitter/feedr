@@ -21,6 +21,10 @@ module Feedr
 
     set :public_folder, './dist'
 
+    use Rack::Static, {
+      urls: ['/assets'],
+      root: File.join(File.dirname(__FILE__), 'feedr/public')
+    }
   end
 end
 

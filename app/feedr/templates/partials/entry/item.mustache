@@ -1,8 +1,17 @@
 <li class="feedr-entry-list-item">
-  <span class="feedr-feed-title"> {{feed_title}} </span>
+  <div class="row">
 
-  <a class="feedr-entry-link"
-      href="/feed/{{feed_id}}/entry/{{id}}">{{title}}</a>
+    <div class="two columns feedr-feed-title">
+        {{feed_title}}
+    </div>
 
-  <span class="feedr-entry-date"> {{format_published_date}} </span>
+    <div class="six columns feedr-entry-title">
+      {{title}}
+    </div>
+
+    <div class="two columns u-pull-right">
+      {{> partials/entry/item_tools}}
+    </div>
+
+  </div>
 </li>

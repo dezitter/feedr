@@ -1,0 +1,19 @@
+.icon-bin {
+    @include icon(url('/assets/icons/bin.svg'));
+}
+
+.icon-earth {
+    @include icon(url('/assets/icons/earth.svg'));
+}
+
+.icon-floppy-disk {
+    @include icon(url('/assets/icons/floppy-disk.svg'));
+}
+
+.icon-star-empty {
+    @include icon(url('/assets/icons/star-empty.svg'));
+}
+
+.icon-star-full {
+    @include icon(url('/assets/icons/star-full.svg'));
+}
