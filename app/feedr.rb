@@ -13,9 +13,10 @@ module Feedr
   class App < Sinatra::Base
     register Mustache::Sinatra
 
+    set :root, File.join(File.dirname(__FILE__), 'feedr')
     set :mustache, {
-      :views     => File.join(File.dirname(__FILE__), 'feedr', 'views'),
-      :templates => File.join(File.dirname(__FILE__), 'feedr', 'templates'),
+      :views     => File.join(settings.root, 'views'),
+      :templates => File.join(settings.root, 'templates'),
       :namespace => Feedr
     }
 
@@ -23,7 +24,7 @@ module Feedr
 
     use Rack::Static, {
       urls: ['/assets'],
-      root: File.join(File.dirname(__FILE__), 'feedr/public')
+      root: File.join(settings.root, '/public')
     }
   end
 end
