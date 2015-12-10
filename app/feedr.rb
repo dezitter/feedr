@@ -21,14 +21,10 @@ module Feedr
     }
 
     set :public_folder, './dist'
-
-    use Rack::Static, {
-      urls: ['/assets'],
-      root: File.join(settings.root, '/public')
-    }
   end
 end
 
+require 'feedr/middlewares/static'
 require 'feedr/controllers/index'
 require 'feedr/controllers/feed'
 require 'feedr/controllers/entry'
