@@ -20,6 +20,5 @@ load 'app/feedr/tasks/db/drop.rake'
 load 'app/feedr/tasks/css/build.rake'
 load 'app/feedr/tasks/css/clean.rake'
 load 'app/feedr/tasks/css/compile.rake'
-load 'app/feedr/tasks/css/symlink_assets.rake'
 
 load 'app/feedr/tasks/feed/sync.rake'
