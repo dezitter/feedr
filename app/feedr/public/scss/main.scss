@@ -4,13 +4,15 @@
 @import "partials/icons";
 
 @import "partials/navbar";
-@import "partials/_entry_list";
-@import "partials/_feed_list";
-@import "partials/_entry";
+@import "partials/list";
+@import "partials/entry_list";
+@import "partials/feed_list";
+@import "partials/entry";
 
 html, body {
     height: 100%;
     color: $primary-color;
+    background-color: $background-color;
 }
 
 /* CONTENT */

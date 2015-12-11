@@ -1,22 +1,15 @@
 .feedr-entry-list {
-    list-style: none;
+    @extend .feedr-list;
 }
 
 .feedr-entry-list-item {
-    padding: 1rem;
-    border-radius: 5px;
-    border: $light-border;
+    @extend .feedr-list-item;
+}
 
-    .feedr-entry-date {
-        color: $secondary-color;
-        float: right;
-    }
+.feedr-entry-title {
+    font-weight: 600;
 }
 
 .feedr-entry-tools {
     display: inline-block;
-}
-
-.feedr-entry-link {
-    text-decoration: none;
 }

@@ -1,0 +1,12 @@
+.feedr-list {
+    list-style: none;
+}
+
+.feedr-list-item {
+    padding: 1rem;
+    border-radius: 5px;
+    border: $light-border;
+
+    color: $list-item-text-color;
+    background-color: $list-item-bg-color;
+}
