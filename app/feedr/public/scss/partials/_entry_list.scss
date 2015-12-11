@@ -6,7 +6,12 @@
     @extend .feedr-list-item;
 }
 
+.feedr-feed-title {
+    @include text-overflow;
+}
+
 .feedr-entry-title {
+    @include text-overflow;
     font-weight: 600;
 }
 
