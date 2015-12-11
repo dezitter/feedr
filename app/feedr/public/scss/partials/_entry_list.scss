@@ -16,5 +16,11 @@
 }
 
 .feedr-entry-tools {
-    display: inline-block;
+    display: none;
+}
+
+@media (min-width: 500px) {
+    .feedr-entry-tools {
+        display: inline-block;
+    }
 }
