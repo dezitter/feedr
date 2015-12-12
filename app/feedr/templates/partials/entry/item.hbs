@@ -1,0 +1,17 @@
+<li class="feedr-entry-list-item">
+  <div class="row">
+
+    <div title="{{entry.feed_title}}" class="three columns feedr-feed-title">
+        {{entry.feed_title}}
+    </div>
+
+    <div title="{{entry.title}}" class="seven columns feedr-entry-title">
+      {{entry.title}}
+    </div>
+
+    <div class="two columns">
+      {{> partials/entry/item_tools entry=entry}}
+    </div>
+
+  </div>
+</li>

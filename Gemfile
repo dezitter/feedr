@@ -7,8 +7,8 @@ gem 'sass'
 gem 'sqlite3'
 gem 'sequel'
 
-gem 'sinatra',          :require => 'sinatra/base'
-gem 'mustache-sinatra', :require => 'mustache/sinatra'
+gem 'sinatra', :require => 'sinatra/base'
+gem 'handlebars'
 
 gem 'feedjira'
 gem 'ruby-readability', :require => 'readability'

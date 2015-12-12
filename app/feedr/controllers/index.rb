@@ -2,7 +2,7 @@ module Feedr
   class App < Sinatra::Base
 
     get '/' do
-      mustache :index, :locals => {
+      handlebars :index, :locals => {
         entries: EntryRepository.list
       }
     end

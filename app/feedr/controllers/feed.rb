@@ -8,7 +8,7 @@ module Feedr
     end
 
     get '/feeds' do
-      mustache :feeds, :locals => {
+      handlebars :feeds, :locals => {
         feeds: FeedRepository.list
       }
     end
@@ -16,7 +16,7 @@ module Feedr
     get '/feed/:id' do |id|
       feed = FeedRepository.find(id)
 
-      mustache :feed, :locals => feed
+      handlebars :feed, :locals => feed
     end
 
   end

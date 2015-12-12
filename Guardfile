@@ -9,7 +9,7 @@ end
 
 guard 'livereload' do
   watch(%r{^dist/css/[^/]*\.css$})
-  watch(%r{^app/feedr/templates/.*\.mustache$})
+  watch(%r{^app/feedr/templates/.*\.hbs$})
 end
 
 guard 'rake', :task => 'css:compile' do

@@ -1,0 +1,9 @@
+{{#unless entries}}
+  <p>No entries!</p>
+{{/unless}}
+
+<ul class="feedr-entry-list">
+  {{#each entries}}
+    {{> partials/entry/item entry=this}}
+  {{/each}}
+</ul>

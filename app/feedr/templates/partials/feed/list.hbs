@@ -1,0 +1,9 @@
+{{#unless feeds}}
+  <p>No Feeds!</p>
+{{/unless}}
+
+<ul class="feedr-feed-list">
+  {{#each feeds}}
+    {{> partials/feed/item feed=this}}
+  {{/each}}
+</ul>
