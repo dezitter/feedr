@@ -4,6 +4,11 @@
 
 .feedr-entry-list-item {
     @extend .feedr-list-item;
+    font-weight: 600;
+
+    &.feedr-entry-read {
+        font-weight: normal;
+    }
 }
 
 .feedr-feed-title {
@@ -12,7 +17,6 @@
 
 .feedr-entry-title {
     @include text-overflow;
-    font-weight: 600;
 }
 
 .feedr-entry-tools {

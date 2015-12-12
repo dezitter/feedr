@@ -1,4 +1,8 @@
-<li class="feedr-entry-list-item">
+{{#if entry.read}}
+  <li class="feedr-entry-list-item feedr-entry-read">
+{{else}}
+  <li class="feedr-entry-list-item">
+{{/if}}
   <div class="row">
 
     <div title="{{entry.feed_title}}" class="three columns feedr-feed-title">

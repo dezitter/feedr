@@ -9,6 +9,12 @@ module Feedr
       }
     end
 
+    post '/entries/mark-as-read' do
+      EntryRepository.mark_all_as_read
+
+      redirect to('/')
+    end
+
     post '/entry/:id/star' do |id|
       EntryRepository.star(id)
 
