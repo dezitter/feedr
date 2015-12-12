@@ -1,5 +1,11 @@
 <div class="feedr-entry-tools u-pull-right">
-  <a title="Link" href="{{entry.url}}" class="icon-earth"></a>
-  <a title="Save" href="#" class="icon-floppy-disk"></a>
-  <a title="Star" href="#" class="icon-star-empty"></a>
+
+  {{> partials/entry/form_action entry=entry action="save" icon="icon-floppy-disk"}}
+
+  {{#if entry.starred}}
+    {{> partials/entry/form_action entry=entry action="unstar" icon="icon-star-full"}}
+  {{else}}
+    {{> partials/entry/form_action entry=entry action="star" icon="icon-star-empty"}}
+  {{/if}}
+
 </div>

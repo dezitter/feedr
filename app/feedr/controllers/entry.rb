@@ -1,10 +1,24 @@
 module Feedr
   class App < Sinatra::Base
 
-    get '/feed/:feed_id/entry/:entry_id' do |feed_id, entry_id|
-      entry = EntryRepository.find(entry_id)
+    get '/entries/starred' do
+      handlebars :index, :locals => {
+        entries: EntryRepository.list({
+          :where => { starred: true }
+        })
+      }
+    end
 
-      handlebars :entry, :locals => entry
+    post '/entry/:id/star' do |id|
+      EntryRepository.star(id)
+
+      redirect to('/')
+    end
+
+    post '/entry/:id/unstar' do |id|
+      EntryRepository.unstar(id)
+
+      redirect to('/')
     end
 
   end
