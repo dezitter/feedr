@@ -3,6 +3,7 @@ module Feedr
 
     get '/' do
       handlebars :index, :locals => {
+        title: 'Home',
         entries: EntryRepository.list
       }
     end

@@ -2,10 +2,13 @@ module Feedr
   class App < Sinatra::Base
 
     get '/entries/starred' do
+      entries = EntryRepository.list({
+        :where => { starred: true }
+      })
+
       handlebars :index, :locals => {
-        entries: EntryRepository.list({
-          :where => { starred: true }
-        })
+        title: 'Starred',
+        entries: entries
       }
     end
 
