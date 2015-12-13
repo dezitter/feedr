@@ -1,0 +1,16 @@
+.alert-error {
+    @include alert($alert-error-text-color, $alert-error-bg-color);
+}
+
+.alert-info {
+    @include alert($alert-info-text-color, $alert-info-bg-color);
+}
+
+.alert-success {
+    @include alert($alert-success-text-color, $alert-success-bg-color);
+}
+
+.alert-warning {
+    @include alert($alert-warning-text-color, $alert-warning-bg-color);
+}
+

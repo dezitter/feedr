@@ -1,0 +1,13 @@
+@mixin alert($color, $bg-color) {
+    padding: 10px;
+
+    border: 1px solid $color;
+    border-radius: 5px;
+
+    color: $color;
+    background-color: $bg-color;
+
+    > p {
+        margin: 0;
+    }
+}
