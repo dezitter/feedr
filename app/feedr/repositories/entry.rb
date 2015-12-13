@@ -17,7 +17,9 @@ module Feedr
       feed_map = FeedRepository.to_hash
 
       published_order = Sequel.desc(:published)
-      query = Entry.order(published_order).where(options[:where])
+      query = Entry.order(published_order)
+                   .where(options[:where])
+                   .limit(options[:limit])
 
       query.all.map do |entry|
         feed = feed_map[entry.feed_id]
