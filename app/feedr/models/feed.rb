@@ -3,6 +3,7 @@ require 'uri'
 module Feedr
   class Feed < Sequel::Model
     one_to_many :entries
+    plugin :timestamps, :update_on_create => true
 
     def before_create
       self.title ||= URI(self.url).host

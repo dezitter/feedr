@@ -6,7 +6,9 @@ module Feedr
     end
 
     def self.list
-      Feed.all.map(&:to_hash)
+      created_at_order = Sequel.desc(:created_at)
+
+      Feed.order(created_at_order).all.map(&:to_hash)
     end
 
     def self.find(id)
