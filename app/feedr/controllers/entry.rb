@@ -1,12 +1,21 @@
 module Feedr
   class App < Sinatra::Base
 
+    get '/entries/all' do
+      entries = EntryRepository.list()
+
+      handlebars :entries, :locals => {
+        title: 'All',
+        entries: entries
+      }
+    end
+
     get '/entries/starred' do
       entries = EntryRepository.list({
         :where => { starred: true }
       })
 
-      handlebars :index, :locals => {
+      handlebars :entries, :locals => {
         title: 'Starred',
         entries: entries
       }

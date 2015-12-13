@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="four columns offset-by-eight">
+    <form action="/entries/mark-as-read" method="POST">
+      <button type="submit" class="u-pull-right">Mark all as read</button>
+    </form>
+  </div>
+</div>
+
+{{> partials/entry/list entries=entries}}
