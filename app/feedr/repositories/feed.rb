@@ -13,7 +13,9 @@ module Feedr
 
     def self.find(id)
       feed = Feed[id]
-      entries = feed.entries.map(&:to_hash)
+      entries = feed.entries.map do |entry|
+        entry.to_hash.merge(feed_title: feed.title)
+      end
 
       feed.to_hash.merge(entries: entries)
     end
