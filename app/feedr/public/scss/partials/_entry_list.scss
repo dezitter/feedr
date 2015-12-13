@@ -9,6 +9,10 @@
     &.feedr-entry-read {
         font-weight: normal;
     }
+
+    &:hover {
+        border-color: black;
+    }
 }
 
 .feedr-feed-title {
