@@ -11,10 +11,8 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
-    <div class="container">
-      {{> partials/header}}
-      <div id="content"> {{{content}}} </div>
-      {{> partials/footer}}
-    </div>
+    {{> partials/header}}
+    <div id="content" class="container"> {{{content}}} </div>
+    {{> partials/footer}}
   </body>
 </html>
