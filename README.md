@@ -7,6 +7,7 @@ A simple feed reader.
 ```shell
 $ bundle install
 $ rake build
+$ cp .env.example .env
 ```
 
 # Run
