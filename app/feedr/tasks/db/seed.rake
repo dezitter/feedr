@@ -1,5 +1,5 @@
 require 'json'
-require 'feedr/services/database'
+require 'feedr/services/database/database'
 
 namespace :db do
 
@@ -8,7 +8,7 @@ namespace :db do
     seed_files = ['feeds', 'entries'].map { |f| "./db/seed/#{f}.json"}
     data = seed_files.map do |file_name|
       {
-        table_name: File.basename(file_name, '.json'),
+        table: File.basename(file_name, '.json'),
         values: JSON.parse(File.read(file_name))
       }
     end

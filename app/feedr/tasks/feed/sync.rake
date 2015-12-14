@@ -1,4 +1,4 @@
-require 'feedr/services/database'
+require 'feedr/services/database/database'
 
 Feedr::Services::Database.new(DB_CONFIG).connect
 

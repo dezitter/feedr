@@ -1,4 +1,4 @@
-require 'feedr/services/database'
+require 'feedr/services/database/database'
 
 namespace :db do
 
