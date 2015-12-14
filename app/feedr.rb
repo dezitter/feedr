@@ -10,6 +10,7 @@ require 'feedr/repositories/entry'
 
 module Feedr
   class App < Sinatra::Base
+    helpers Helpers
 
     set :root, File.join(File.dirname(__FILE__), 'feedr')
     set :handlebars, {
@@ -18,11 +19,13 @@ module Feedr
 
     set :public_folder, './dist'
 
-    helpers Helpers
+    use Rack::Static, {
+      urls: ['/assets', '/css/vendor/'],
+      root: File.join(settings.root, '/public')
+    }
   end
 end
 
-require 'feedr/middlewares/static'
 require 'feedr/controllers/index'
 require 'feedr/controllers/feed'
 require 'feedr/controllers/entry'
