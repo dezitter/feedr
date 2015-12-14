@@ -5,6 +5,7 @@ gem 'thread'
 gem 'rake'
 gem 'sass'
 
+gem 'bcrypt'
 gem 'sqlite3'
 gem 'sequel'
 

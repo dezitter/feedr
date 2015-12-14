@@ -1,0 +1,18 @@
+<form method="POST" action="/login">
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="login">Login</label>
+      {{> partials/user/login_input}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="password">Password</label>
+      {{> partials/user/password_input}}
+    </div>
+  </div>
+
+  <button class="button-primary" type="submit">Login</button>
+</form>

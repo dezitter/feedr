@@ -1,0 +1,25 @@
+<form method="POST" action="/signup">
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="login">Login</label>
+      {{> partials/user/login_input}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="password">Password</label>
+      {{> partials/user/password_input}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      <label for="password_confirm">Confirm Password</label>
+      {{> partials/user/password_confirm_input}}
+    </div>
+  </div>
+
+  <button class="button-primary" type="submit">Signup</button>
+</form>
