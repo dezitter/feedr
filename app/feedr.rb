@@ -19,6 +19,7 @@ module Feedr
 
     set :public_folder, './dist'
 
+    use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
     use Rack::Static, {
       urls: ['/assets', '/css/vendor/'],
       root: File.join(settings.root, '/public')
