@@ -7,13 +7,14 @@ A simple feed reader.
 ```shell
 $ bundle install
 $ rake build
+$ ./bin/make-cert.sh
 $ cp .env.example .env
 ```
 
 # Run
 
 ```shell
-$ rackup -p 8000
+$ ./bin/run.sh ./config/server.development.yml
 ```
 
-Go to [localhost:8000](http://localhost:8000)
+Go to [https://localhost:9292](https://localhost:9292)

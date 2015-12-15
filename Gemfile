@@ -9,6 +9,7 @@ gem 'bcrypt'
 gem 'sqlite3'
 gem 'sequel'
 
+gem 'thin'
 gem 'sinatra', :require => 'sinatra/base'
 gem 'handlebars'
 

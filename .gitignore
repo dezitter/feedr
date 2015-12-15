@@ -1,4 +1,5 @@
 .env
+ssl/
 dist/
 feedr.sqlite
 .sass-cache/
