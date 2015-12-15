@@ -5,12 +5,13 @@ module Feedr
 
     def engine_options
       {
-        template_root: settings.handlebars[:templates]
+        helpers: ::Feedr::ViewHelpers,
+        template_root: settings.handlebars[:templates],
       }
     end
 
     def handlebars(template, options={}, locals={})
-      HandlebarsEngine.new(engine_options).render(template, options, locals)
+      HandlebarsEngine.new(self, engine_options).render(template, options, locals)
     end
 
   end

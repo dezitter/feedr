@@ -1,7 +1,8 @@
 module Feedr
   class HandlebarsEngine
 
-    def initialize(settings)
+    def initialize(app, settings)
+      @app = app
       @context = Handlebars::Context.new
 
       @template_root = settings[:template_root]
@@ -10,6 +11,8 @@ module Feedr
       @context.partial_missing do |tpl|
         partial_renderer(tpl)
       end
+
+      register_helpers(settings[:helpers]) if settings[:helpers]
     end
 
     def render(template, options={}, locals={})
@@ -52,6 +55,16 @@ module Feedr
 
     def basename(template)
       "#{template}.#{@template_extension}"
+    end
+
+    def register_helpers(helpers_module)
+      helpers_module.instance_methods(false).each do |method|
+
+        @context.register_helper(method) do |this, ctx, opts|
+          Class.new.extend(helpers_module).send(method, @app, this, ctx)
+        end
+
+      end
     end
   end
 end

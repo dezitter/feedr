@@ -5,6 +5,7 @@ Sequel.connect(YAML.load_file('./config/database.yml'))
 require 'feedr/helpers/auth'
 require 'feedr/helpers/handlebars'
 require 'feedr/helpers/params'
+require 'feedr/helpers/view'
 require 'feedr/models/user'
 require 'feedr/models/feed'
 require 'feedr/models/entry'

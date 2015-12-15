@@ -1,6 +1,7 @@
 <div class="navbar">
   <ul class="navbar-list">
 
+  {{#render_if_authenticated}}
     <li class="navbar-item">
       <a class="navbar-link" href="/">Home</a>
     </li>
@@ -20,6 +21,7 @@
     <li class="navbar-item">
       <a class="navbar-link" href="/logout">Logout</a>
     </li>
+  {{/render_if_authenticated}}
 
   </ul>
 </div>
