@@ -5,6 +5,10 @@ module Feedr
       return params[:login], params[:password]
     end
 
+    def feed_params
+      return params[:url]
+    end
+
     def is_user_params_valid?
       login, password = user_params
 

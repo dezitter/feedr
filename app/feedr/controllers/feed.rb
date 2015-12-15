@@ -2,7 +2,7 @@ module Feedr
   class App < Sinatra::Base
 
     post '/feed' do
-      FeedRepository.create(params[:url])
+      FeedRepository.create(*feed_params)
 
       redirect to('/feeds')
     end
