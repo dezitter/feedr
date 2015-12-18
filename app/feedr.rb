@@ -40,6 +40,6 @@ module Feedr
 end
 
 require 'feedr/controllers/user'
-require 'feedr/controllers/index'
+require 'feedr/controllers/home'
 require 'feedr/controllers/feed'
 require 'feedr/controllers/entry'
