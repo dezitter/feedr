@@ -29,5 +29,6 @@ load 'app/feedr/tasks/css/build.rake'
 load 'app/feedr/tasks/js/clean.rake'
 load 'app/feedr/tasks/js/bundle.rake'
 load 'app/feedr/tasks/js/build.rake'
+load 'app/feedr/tasks/js/watch.rake'
 
 load 'app/feedr/tasks/feed/sync.rake'

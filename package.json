@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/dezitter/feedr#readme",
   "devDependencies": {
-    "browserify": "^12.0.1"
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.1"
   }
 }
