@@ -1,19 +1,27 @@
+import EntriesController from 'app/controllers/entries';
+import FeedsController from 'app/controllers/feeds';
+import HomeController from 'app/controllers/home';
+
 export default {
 
-    '': function() {
-        console.log('home');
+    '': {
+        controller: HomeController,
+        action: 'index'
     },
 
-    'entries/all': function() {
-        console.log('entries/all');
+    'entries/all': {
+        controller: EntriesController,
+        action: 'all'
     },
 
-    'entries/starred': function() {
-        console.log('entries/starred');
+    'entries/starred': {
+        controller: EntriesController,
+        action: 'starred'
     },
 
-    'feeds': function() {
-        console.log('feeds');
+    'feeds': {
+        controller: FeedsController,
+        action: 'index'
     }
 
 };
