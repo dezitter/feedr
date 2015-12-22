@@ -1,13 +1,13 @@
+require 'feedr/services/bundler'
+
 namespace :js do
   desc 'bundle js assets'
   task :bundle do
-    output_directory = PATHS[:js][:output_directory]
+    options = {
+      js_output_directory: PATHS[:js][:output_directory],
+      js_entry_filename: PATHS[:js][:input_filename]
+    }
 
-    entry = PATHS[:js][:input_filename]
-    outfile = File.join(output_directory, 'bundle.js')
-
-    FileUtils.mkdir_p(output_directory) unless File.directory?(output_directory)
-
-    sh "./node_modules/.bin/browserify #{entry} -o #{outfile}"
+    Feedr::Services::Bundler.new(options).bundle
   end
 end

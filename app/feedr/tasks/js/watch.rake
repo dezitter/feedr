@@ -1,11 +1,11 @@
 namespace :js do
   desc 'watch js files and re-bundle on changes'
   task :watch => [:build] do
-    output_directory = PATHS[:js][:output_directory]
+    options = {
+      js_output_directory: PATHS[:js][:output_directory],
+      js_entry_filename: PATHS[:js][:input_filename]
+    }
 
-    entry = PATHS[:js][:input_filename]
-    outfile = File.join(output_directory, 'bundle.js')
-
-    sh "./node_modules/.bin/watchify #{entry} -o #{outfile} -v"
+    Feedr::Services::Bundler.new(options).watch
   end
 end
