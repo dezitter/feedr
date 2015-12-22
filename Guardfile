@@ -8,7 +8,7 @@ guard 'rack' do
 end
 
 guard 'livereload' do
-  watch(%r{^dist/css/[^/]*\.css$})
+  watch(%r{^dist/(js|css)/[^/]*\.(js|css)$})
   watch(%r{^app/feedr/templates/.*\.hbs$})
 end
 

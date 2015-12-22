@@ -8,6 +8,11 @@ PATHS = {
     input_filenames:  [File.expand_path('./app/feedr/public/scss/main.scss')],
     output_directory: File.expand_path('./dist/css'),
     vendor_directory: File.expand_path('./vendor/css')
+  },
+
+  :js => {
+    input_filename:  File.expand_path('./app/feedr/public/js/main.js'),
+    output_directory: File.expand_path('./dist/js')
   }
 }
 
@@ -20,5 +25,9 @@ load 'app/feedr/tasks/db/drop.rake'
 load 'app/feedr/tasks/css/clean.rake'
 load 'app/feedr/tasks/css/compile.rake'
 load 'app/feedr/tasks/css/build.rake'
+
+load 'app/feedr/tasks/js/clean.rake'
+load 'app/feedr/tasks/js/bundle.rake'
+load 'app/feedr/tasks/js/build.rake'
 
 load 'app/feedr/tasks/feed/sync.rake'

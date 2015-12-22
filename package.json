@@ -1,0 +1,26 @@
+{
+  "name": "feedr",
+  "version": "1.0.0",
+  "description": "A simple feed reader.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dezitter/feedr.git"
+  },
+  "keywords": [
+    "feed",
+    "reader"
+  ],
+  "author": "Laurent Dezitter <laurent.dezitter@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dezitter/feedr/issues"
+  },
+  "homepage": "https://github.com/dezitter/feedr#readme",
+  "devDependencies": {
+    "browserify": "^12.0.1"
+  }
+}

@@ -4,5 +4,6 @@ feedr.sqlite
 
 ssl/
 dist/
+node_modules/
 
 .sass-cache/
