@@ -21,18 +21,22 @@
   },
   "homepage": "https://github.com/dezitter/feedr#readme",
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
     "babel-preset-es2015": "^6.3.13",
     "babelify": "^7.2.0",
+    "brfs": "^1.4.1",
     "browserify": "^12.0.1",
     "watchify": "^3.6.1"
   },
   "browserify": {
     "transform": [
-      "babelify"
+      "babelify",
+      "brfs"
     ]
   },
   "dependencies": {
     "backbone": "^1.2.3",
+    "handlebars": "^4.0.5",
     "jquery": "^2.1.4",
     "underscore": "^1.8.3"
   }

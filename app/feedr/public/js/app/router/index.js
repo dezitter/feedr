@@ -1,10 +1,16 @@
 import _ from 'underscore';
 import Backbone from 'backbone';
 
+import { buildRoutehandler } from './utils/build-route-handler';
+
 class Router extends Backbone.Router {
 
     constructor(options) {
         super(_.omit(options, 'routes'));
+
+        this.currentView = null;
+        this.app = options.app;
+        this.$container = options.$container;
 
         this.registerRoutes(options.routes);
     }
@@ -25,13 +31,17 @@ class Router extends Backbone.Router {
     }
 
     registerRoute(route, spec) {
-        const action = spec.action;
-        const Controller = spec.controller;
+        // TODO handle routes params
+        this.route(route, buildRoutehandler(this, spec));
+    }
 
-        this.route(route, function() {
-            let controller = new Controller();
-            controller[action].call(controller);
-        });
+    show(view) {
+        if (this.currentView != null) {
+            this.currentView.remove();
+        }
+
+        this.currentView = view;
+        this.$container.html(view.render().$el);
     }
 
 }
