@@ -15,3 +15,7 @@ end
 guard 'rake', :task => 'css:compile' do
   watch(%r{^app/feedr/public/scss/.*\.scss})
 end
+
+guard 'rake', :task => 'js:compile_templates' do
+  watch(%r{^app/feedr/templates/.*\.hbs$})
+end

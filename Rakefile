@@ -12,7 +12,10 @@ PATHS = {
 
   :js => {
     input_filename:  File.expand_path('./app/feedr/public/js/main.js'),
-    output_directory: File.expand_path('./dist/js')
+    output_directory: File.expand_path('./dist/js'),
+
+    template_bundle_filename: File.expand_path('./app/feedr/public/js/templates.js'),
+    template_source_directory: File.expand_path('./app/feedr/templates')
   }
 }
 
@@ -27,6 +30,7 @@ load 'app/feedr/tasks/css/compile.rake'
 load 'app/feedr/tasks/css/build.rake'
 
 load 'app/feedr/tasks/js/clean.rake'
+load 'app/feedr/tasks/js/compile_templates.rake'
 load 'app/feedr/tasks/js/bundle.rake'
 load 'app/feedr/tasks/js/build.rake'
 load 'app/feedr/tasks/js/watch.rake'
