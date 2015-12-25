@@ -10,7 +10,7 @@ module Feedr
     get '/feeds' do
       handlebars :feeds, :locals => {
         title: 'Feeds',
-        feeds: FeedRepository.list
+        feeds: FeedRepository.list()
       }
     end
 

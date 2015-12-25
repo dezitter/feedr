@@ -3,7 +3,9 @@ import { readRouteSpec } from './read-route-spec';
 export function buildRoutehandler(router, spec) {
     return function() {
         let { action, Controller, View } = readRouteSpec(spec);
-        let controller = new Controller();
+        let controller = new Controller({
+            app: router.app
+        });
 
         controller[action].call(controller, function(err, result) {
             if (err) { throw new Error(err); }

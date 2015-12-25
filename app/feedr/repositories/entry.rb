@@ -28,6 +28,10 @@ module Feedr
       end
     end
 
+    def self.starred
+      return self.list(where: { starred: true })
+    end
+
     def self.mark_all_as_read
       Entry.where(read: false).update(read: true)
     end

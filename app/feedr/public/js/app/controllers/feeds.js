@@ -4,10 +4,10 @@ import FeedsCollection from 'app/collections/feeds';
 class FeedsController extends BaseController {
 
     index(cb) {
-        cb(null, {
-            collection: new FeedsCollection([
-                { id:1, title: 'Feed' }
-            ])
+        this.fetch('/api/feeds', (err, res) => {
+            if (err) { return cb(err); }
+
+            cb(null, { collection: new FeedsCollection(res.feeds) });
         });
     }
 

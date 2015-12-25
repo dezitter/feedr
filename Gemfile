@@ -11,6 +11,7 @@ gem 'sequel'
 
 gem 'thin'
 gem 'sinatra', :require => 'sinatra/base'
+gem 'sinatra-contrib', :require => 'sinatra/json'
 gem 'handlebars'
 
 gem 'feedjira'

@@ -15,6 +15,7 @@ require 'feedr/repositories/entry'
 
 module Feedr
   class App < Sinatra::Base
+    helpers Sinatra::JSON
     helpers Helpers
 
     set :root, File.join(File.dirname(__FILE__), 'feedr')
@@ -43,3 +44,5 @@ require 'feedr/controllers/user'
 require 'feedr/controllers/home'
 require 'feedr/controllers/feed'
 require 'feedr/controllers/entry'
+require 'feedr/api/feed'
+require 'feedr/api/entry'

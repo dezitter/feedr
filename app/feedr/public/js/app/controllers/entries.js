@@ -4,20 +4,18 @@ import EntriesCollection from 'app/collections/entries';
 class EntriesController extends BaseController {
 
     all(cb) {
-        cb(null, {
-            collection: new EntriesCollection([
-                { id:1, title: 'Foo', feed_title: 'Feed', url: 'http://www.example.com', starred: true  },
-                { id:2, title: 'Bar', feed_title: 'Feed', url: 'http://www.example.com', starred: false },
-                { id:3, title: 'Quz', feed_title: 'Feed', url: 'http://www.example.com', starred: false }
-            ])
+        this.app.fetcher.fetch('/api/entries/all', (err, res) => {
+            if (err) { return cb(err); }
+
+            cb(null, { collection: new EntriesCollection(res.entries) });
         });
     }
 
     starred(cb) {
-        cb(null, {
-            collection: new EntriesCollection([
-                { id:1, title: 'Foo', feed_title: 'Feed', url: 'http://www.example.com', starred: true  }
-            ])
+        this.app.fetcher.fetch('/api/entries/starred', { starred: true }, (err, res) => {
+            if (err) { return cb(err); }
+
+            cb(null, { collection: new EntriesCollection(res.entries) });
         });
     }
 
