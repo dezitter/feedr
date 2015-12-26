@@ -3,12 +3,13 @@ import EntriesCollection from 'app/collections/entries';
 
 class HomeController extends BaseController {
 
-    index(cb) {
-        this.fetch('/api/entries/all', { query: { limit: 10 } }, (err, res) => {
-            if (err) { return cb(err); }
+    index() {
+        let options = { query: { limit: 10 } };
 
-            cb(null, { collection: new EntriesCollection(res.entries) });
-        });
+        return this.fetch('/api/entries/all', options)
+                   .then(res => {
+                       return { collection: new EntriesCollection(res.entries) };
+                   });
     }
 
 }

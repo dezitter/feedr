@@ -1,25 +1,22 @@
+import  { Promise } from 'es6-promise';
 import superagent from 'superagent';
 
 class Fetcher {
 
-    fetch(endpoint, options, cb) {
-        if (typeof cb !== 'function') {
-            cb = options;
-            options = {};
-        }
+    fetch(endpoint, options={}) {
+        return new Promise((resolve, reject) => {
+            superagent.get(endpoint)
+                      .query(options.query)
+                      .set('Accept', 'application/json')
+                      .end(onResponse);
 
-        function onResponse(err, response) {
-            if (err) { return cb(err); }
+            function onResponse(err, response) {
+                if (err) { return reject(err); }
 
-            cb(null, response.body);
-        }
-
-        superagent.get(endpoint)
-                  .query(options.query)
-                  .set('Accept', 'application/json')
-                  .end(onResponse);
+                resolve(response.body);
+            }
+        });
     }
-
 }
 
 export default Fetcher;

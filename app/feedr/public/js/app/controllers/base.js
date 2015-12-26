@@ -4,8 +4,8 @@ class BaseController {
         this.app = options.app;
     }
 
-    fetch(url, options, cb) {
-        this.app.fetcher.fetch(url, options, cb);
+    fetch(url, options) {
+        return this.app.fetcher.fetch(url, options);
     }
 }
 

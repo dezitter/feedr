@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "backbone": "^1.2.3",
+    "es6-promise": "^3.0.2",
     "handlebars": "^4.0.5",
     "jquery": "^2.1.4",
     "superagent": "^1.6.1",
