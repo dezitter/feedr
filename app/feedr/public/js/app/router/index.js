@@ -18,7 +18,7 @@ class Router extends Backbone.Router {
     navigate(route, options) {
         let wasHandled = Backbone.history.navigate(route, options);
 
-        if (!wasHandled) {
+        if (wasHandled === false) {
             throw new Error(`Unknown route ${route}`);
         }
 
