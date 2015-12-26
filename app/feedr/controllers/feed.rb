@@ -4,7 +4,7 @@ module Feedr
     post '/feed' do
       FeedRepository.create(*feed_params)
 
-      redirect to('/feeds')
+      redirect back
     end
 
     get '/feeds' do
