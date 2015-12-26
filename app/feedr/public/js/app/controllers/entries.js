@@ -4,7 +4,7 @@ import EntriesCollection from 'app/collections/entries';
 class EntriesController extends BaseController {
 
     all(cb) {
-        this.app.fetcher.fetch('/api/entries/all', (err, res) => {
+        this.fetch('/api/entries/all', (err, res) => {
             if (err) { return cb(err); }
 
             cb(null, { collection: new EntriesCollection(res.entries) });
@@ -12,7 +12,7 @@ class EntriesController extends BaseController {
     }
 
     starred(cb) {
-        this.app.fetcher.fetch('/api/entries/starred', { starred: true }, (err, res) => {
+        this.fetch('/api/entries/starred', { starred: true }, (err, res) => {
             if (err) { return cb(err); }
 
             cb(null, { collection: new EntriesCollection(res.entries) });
