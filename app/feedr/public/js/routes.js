@@ -1,5 +1,6 @@
 import HomeView from 'app/views/home';
 import EntriesView from 'app/views/entries';
+import FeedView from 'app/views/feed';
 import FeedsView from 'app/views/feeds';
 
 import EntriesController from 'app/controllers/entries';
@@ -30,6 +31,12 @@ export default {
         view: FeedsView,
         controller: FeedsController,
         action: 'index'
+    },
+
+    'feed/:id': {
+        view: FeedView,
+        controller: FeedsController,
+        action: 'get'
     }
 
 };

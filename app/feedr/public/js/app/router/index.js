@@ -31,7 +31,6 @@ class Router extends Backbone.Router {
     }
 
     registerRoute(route, spec) {
-        // TODO handle routes params
         this.route(route, buildRoutehandler(this, spec));
     }
 
