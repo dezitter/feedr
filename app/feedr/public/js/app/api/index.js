@@ -4,9 +4,9 @@ import { promisify } from './utils/promisify';
 
 class Api {
 
-    static get(endpoint, options={}) {
+    static get(endpoint, query={}) {
         let request = superagent.get(endpoint)
-                                .query(options.query)
+                                .query(query)
                                 .set('Accept', 'application/json');
 
         return promisify(request);
