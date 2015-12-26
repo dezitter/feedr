@@ -1,21 +1,15 @@
-import  { Promise } from 'es6-promise';
 import superagent from 'superagent';
+
+import { promisify } from './utils/promisify';
 
 class Api {
 
     static get(endpoint, options={}) {
-        return new Promise((resolve, reject) => {
-            superagent.get(endpoint)
-                      .query(options.query)
-                      .set('Accept', 'application/json')
-                      .end(onResponse);
+        let request = superagent.get(endpoint)
+                                .query(options.query)
+                                .set('Accept', 'application/json');
 
-            function onResponse(err, response) {
-                if (err) { return reject(err); }
-
-                resolve(response.body);
-            }
-        });
+        return promisify(request);
     }
 
 }
