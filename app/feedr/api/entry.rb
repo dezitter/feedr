@@ -14,5 +14,13 @@ module Feedr
       json EntryRepository.mark_all_as_read
     end
 
+    post '/api/entry/:id/star' do |id|
+      json ({ entry: EntryRepository.star(id) })
+    end
+
+    post '/api/entry/:id/unstar' do |id|
+      json ({ entry: EntryRepository.unstar(id) })
+    end
+
   end
 end
