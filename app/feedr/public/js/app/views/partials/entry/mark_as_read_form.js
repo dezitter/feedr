@@ -19,7 +19,7 @@ class MarkAsReadFormView extends BaseView {
 
         api.post('/api/entries/mark-as-read')
            .then(() => this.app.router.reload())
-           .catch(err => { throw new Error(err); });
+           .catch(err => console.error(err));
     }
 }
 

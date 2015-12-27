@@ -24,7 +24,7 @@ class AddFeedFormView extends BaseView {
            .then(() => {
                this.app.router.navigate('/feeds', { trigger: true });
            })
-           .catch(err => { throw new Error(err); });
+           .catch(err => console.error(err));
     }
 }
 
