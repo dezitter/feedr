@@ -27,6 +27,11 @@ class Router extends Backbone.Router {
         return wasHandled;
     }
 
+    reload() {
+        let route = Backbone.history.getFragment();
+        return Backbone.history.loadUrl(route);
+    }
+
     registerRoutes(routes={}) {
         Object.keys(routes)
               .forEach((route) => this.registerRoute(route, routes[route]));
