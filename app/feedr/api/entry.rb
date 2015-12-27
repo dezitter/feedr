@@ -10,5 +10,9 @@ module Feedr
       json({ entries: EntryRepository.starred() })
     end
 
+    post '/api/entries/mark-as-read' do
+      json EntryRepository.mark_all_as_read
+    end
+
   end
 end

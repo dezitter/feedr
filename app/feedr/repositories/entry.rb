@@ -33,7 +33,9 @@ module Feedr
     end
 
     def self.mark_all_as_read
-      Entry.where(read: false).update(read: true)
+      return {
+        updated: Entry.where(read: false).update(read: true)
+      }
     end
 
   end
