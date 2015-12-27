@@ -34,6 +34,7 @@ module Feedr
       end
     end
 
+    use Rack::Deflater
     use Rack::Static, {
       urls: ['/assets', '/css/vendor/'],
       root: File.join(settings.root, '/public')
