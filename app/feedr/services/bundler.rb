@@ -4,13 +4,13 @@ module Feedr
       include Rake::DSL
 
       def initialize(options)
-        @js_entry_filename = options[:js_entry_filename]
+        @entry = options[:js_entry_filename]
         @js_output_directory = options[:js_output_directory]
       end
 
       def bundle
         make_js_dist_dir()
-        sh "./node_modules/.bin/browserify #{@js_entry_filename} -o #{bundle_filename}"
+        sh "#{browserify_cmd} #{@entry} -g #{global_transform} -o #{outfile}"
       end
 
       def clean
@@ -18,12 +18,28 @@ module Feedr
       end
 
       def watch
-        sh "./node_modules/.bin/watchify #{@js_entry_filename} -o #{bundle_filename} -v"
+        sh "#{watchify_cmd} #{@entry} -g #{global_transform} -o #{outfile} -v"
       end
 
     private
-      def bundle_filename
+      def browserify_cmd
+        "#{node_bin}/browserify"
+      end
+
+      def watchify_cmd
+        "#{node_bin}/watchify"
+      end
+
+      def node_bin
+        "./node_modules/.bin"
+      end
+
+      def outfile
         File.join(@js_output_directory, 'bundle.js')
+      end
+
+      def global_transform
+        "uglifyify"
       end
 
       def make_js_dist_dir
