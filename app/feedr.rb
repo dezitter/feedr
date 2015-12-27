@@ -25,6 +25,7 @@ module Feedr
 
     set :public_folder, './dist'
 
+    use Rack::PostBodyContentTypeParser
     use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
 
     before do

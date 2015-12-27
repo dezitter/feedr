@@ -9,5 +9,9 @@ module Feedr
       json({ feed: FeedRepository.find(id) })
     end
 
+    post '/api/feed' do
+      json ({ feed: FeedRepository.create(*feed_params) })
+    end
+
   end
 end

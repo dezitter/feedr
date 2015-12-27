@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'sequel'
 
 gem 'thin'
+gem 'rack-contrib'
 gem 'sinatra', :require => 'sinatra/base'
 gem 'sinatra-contrib', :require => 'sinatra/json'
 gem 'handlebars'

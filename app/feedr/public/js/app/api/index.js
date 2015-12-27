@@ -7,7 +7,15 @@ class Api {
     static get(endpoint, query={}) {
         let request = superagent.get(endpoint)
                                 .query(query)
-                                .set('Accept', 'application/json');
+                                .accept('application/json');
+
+        return promisify(request);
+    }
+
+    static post(endpoint, params={}) {
+        let request = superagent.post(endpoint)
+                                .send(params)
+                                .accept('application/json');
 
         return promisify(request);
     }

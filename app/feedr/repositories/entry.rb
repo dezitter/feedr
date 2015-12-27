@@ -6,11 +6,11 @@ module Feedr
     end
 
     def self.star(id)
-      Entry[id].update(starred: true)
+      Entry[id].update(starred: true).to_hash
     end
 
     def self.unstar(id)
-      Entry[id].update(starred: false)
+      Entry[id].update(starred: false).to_hash
     end
 
     def self.list(options={})

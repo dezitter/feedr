@@ -2,7 +2,7 @@ module Feedr
   class FeedRepository
 
     def self.create(url)
-      Feed.create(url: url)
+      Feed.create(url: url).to_hash
     end
 
     def self.list
