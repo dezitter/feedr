@@ -6,27 +6,7 @@ class BaseView extends Backbone.View {
     constructor(options) {
         super(options);
 
-        this.children = [];
         this.app = options.app;
-    }
-
-    remove() {
-        _.invoke(this.children, 'remove');
-
-        this.children = [];
-
-        return super.remove();
-    }
-
-    attachChild(ViewCtor, selector, options={}) {
-        let view = new ViewCtor(Object.assign({
-            app: this.app,
-            el: this.$(selector)
-        }, options));
-
-        this.children.push(view);
-
-        return this;
     }
 
     render() {

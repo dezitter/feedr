@@ -1,7 +1,7 @@
-import BaseView from './base';
+import CompositeView from './composite';
 import AddFeedFormView from './partials/feed/add_form';
 
-class FeedsView extends BaseView {
+class FeedsView extends CompositeView {
 
     constructor(options) {
         super(options);

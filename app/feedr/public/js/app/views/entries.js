@@ -1,7 +1,7 @@
-import BaseView from './base';
+import CompositeView from './composite';
 import MarkAsReadFormView from 'app/views/partials/entry/mark_as_read_form';
 
-class EntriesView extends BaseView {
+class EntriesView extends CompositeView {
 
     constructor(options) {
         super(options);
