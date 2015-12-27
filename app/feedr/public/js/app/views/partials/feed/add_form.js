@@ -1,30 +1,17 @@
 import api from 'app/api';
 
-import BaseView from '../../base';
+import FormView from '../form';
 
-class AddFeedFormView extends BaseView {
+class AddFeedFormView extends FormView {
 
-    constructor(options) {
-        super(options);
-
-        this.events = {
-            'submit': this.onSubmit
-        };
-
-        this.delegateEvents();
-    }
-
-    onSubmit(event) {
-        event.preventDefault();
-
+    handleSubmit() {
         let $input = this.$('input[type="url"]');
         let url = $input.val();
 
-        api.post('/api/feed', { url })
-           .then(() => {
-               this.app.router.navigate('/feeds', { trigger: true });
-           })
-           .catch(err => console.error(err));
+        return api.post('/api/feed', { url })
+                  .then(() => {
+                      this.app.router.navigate('/feeds', { trigger: true });
+                  });
     }
 }
 
