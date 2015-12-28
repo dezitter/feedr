@@ -61,7 +61,7 @@ module Feedr
       helpers_module.instance_methods(false).each do |method|
 
         @context.register_helper(method) do |this, ctx, opts|
-          Class.new.extend(helpers_module).send(method, @app, this, ctx)
+          Class.new.extend(helpers_module).send(method, @app, this, ctx, opts)
         end
 
       end

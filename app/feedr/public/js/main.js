@@ -9,6 +9,7 @@ import { hijackLinks } from './links/hijack-links';
 let app = new App({
     routes,
     templates,
+    $menu: $('#menu'),
     $container: $('#content')
 });
 

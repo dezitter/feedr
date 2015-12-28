@@ -1,10 +1,14 @@
 module Feedr
   module ViewHelpers
 
-    def render_if_authenticated(app, context, block)
+    def render_if_authenticated(app, this, context, options)
       if app.is_authenticated?
-        block.fn(context)
+        context.fn(this)
       end
+    end
+
+    def is_route_active(app, this, context, options)
+      context.fn(this) if context[:hash].url == app.request.path
     end
 
   end

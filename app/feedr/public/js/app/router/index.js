@@ -38,7 +38,7 @@ class Router extends Backbone.Router {
     }
 
     registerRoute(route, spec) {
-        this.route(route, buildRoutehandler(this, spec));
+        this.route(route, route, buildRoutehandler(this, spec));
     }
 
     show(view) {

@@ -1,4 +1,4 @@
-<li class="navbar-item">
+<li class="navbar-item {{#is_route_active url=url}}active{{/is_route_active}}">
   <a class="navbar-link"
      href="{{url}}"
      {{#if bypass}}data-bypass{{/if}}>{{title}}</a>
