@@ -1,3 +1,5 @@
+require 'feedr/helpers/view/asset_helper'
+
 module Feedr
   module ViewHelpers
 
@@ -12,13 +14,11 @@ module Feedr
     end
 
     def css(app, this, context, options)
-      href = context[:hash].href
-      "<link rel='stylesheet' href='#{href}'>"
+      AssetHelper.new(app).css_tag(context[:hash].href)
     end
 
     def js(app, this, context, options)
-      src = context[:hash].src
-      "<script type='text/javascript' src='#{src}'></script>"
+      AssetHelper.new(app).js_tag(context[:hash].src)
     end
 
   end

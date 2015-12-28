@@ -5,7 +5,7 @@ Sequel.connect(YAML.load_file('./config/database.yml'))
 require 'feedr/helpers/auth'
 require 'feedr/helpers/handlebars'
 require 'feedr/helpers/params'
-require 'feedr/helpers/view'
+require 'feedr/helpers/view/init'
 require 'feedr/models/user'
 require 'feedr/models/feed'
 require 'feedr/models/entry'
@@ -17,6 +17,10 @@ module Feedr
   class App < Sinatra::Base
     helpers Sinatra::JSON
     helpers Helpers
+
+    def config
+      YAML.load_file('./config/application.yml')
+    end
 
     set :root, File.join(File.dirname(__FILE__), 'feedr')
     set :dist, File.join(settings.root, '..', '..', 'dist')
@@ -36,11 +40,18 @@ module Feedr
     use Rack::Deflater
     use Rack::Static, {
       urls: ['/assets'],
-      root: File.join(settings.root, '/public')
+      root: File.join(settings.root, '/public'),
+      header_rules: [
+        [:all,  { 'Cache-Control' => "public, max-age=#{60 * 60 * 24 * 7 * 4}"}]
+      ]
     }
     use Rack::Static, {
       urls: ['/css', '/js'],
-      root: settings.dist
+      root: settings.dist,
+      header_rules: [
+        ['js',  { 'Cache-Control' => "public, max-age=#{60 * 60 * 24 * 7 * 4}"}],
+        ['css', { 'Cache-Control' => "public, max-age=#{60 * 60 * 24 * 7 * 4}"}]
+      ]
     }
   end
 end
