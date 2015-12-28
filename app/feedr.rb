@@ -19,11 +19,10 @@ module Feedr
     helpers Helpers
 
     set :root, File.join(File.dirname(__FILE__), 'feedr')
+    set :dist, File.join(settings.root, '..', '..', 'dist')
     set :handlebars, {
       :templates => File.join(settings.root, 'templates')
     }
-
-    set :public_folder, './dist'
 
     use Rack::PostBodyContentTypeParser
     use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
@@ -38,6 +37,10 @@ module Feedr
     use Rack::Static, {
       urls: ['/assets', '/css/vendor/'],
       root: File.join(settings.root, '/public')
+    }
+    use Rack::Static, {
+      urls: ['/css', '/js'],
+      root: settings.dist
     }
   end
 end
