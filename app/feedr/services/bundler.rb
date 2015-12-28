@@ -25,9 +25,10 @@ module Feedr
       def browserify_cmd
         [
           "#{browserify_bin} #{@entry}",
-          "-g #{global_transform}",
-          "-o #{outfile}"
-        ].join(' ')
+          "-o #{outfile}",
+          ("-g #{global_transform}" if not is_development_environment),
+          ("-d" if is_development_environment)
+        ].reject(&:nil?).join(' ')
       end
 
       def browserify_bin
@@ -37,10 +38,11 @@ module Feedr
       def watchify_cmd
         [
           "#{watchify_bin} #{@entry}",
-          "-g #{global_transform}",
           "-o #{outfile}",
+          ("-g #{global_transform}" if not is_development_environment),
+          ("-d" if is_development_environment),
           "-v"
-        ].join(' ')
+        ].reject(&:nil?).join(' ')
       end
 
       def watchify_bin
@@ -61,6 +63,10 @@ module Feedr
 
       def make_js_dist_dir
         FileUtils.mkdir_p(@js_output_directory) unless File.directory?(@js_output_directory)
+      end
+
+      def is_development_environment
+        ENV['RACK_ENV'].nil? or ENV['RACK_ENV'] == 'development'
       end
 
     end
