@@ -1,27 +1,3 @@
 <div class="navbar">
-  <ul class="navbar-list">
-
-  {{#render_if_authenticated}}
-    <li class="navbar-item">
-      <a class="navbar-link" href="/">Home</a>
-    </li>
-
-    <li class="navbar-item">
-      <a class="navbar-link" href="/entries/all">All</a>
-    </li>
-
-    <li class="navbar-item">
-      <a class="navbar-link" href="/entries/starred">Starred</a>
-    </li>
-
-    <li class="navbar-item">
-      <a class="navbar-link" href="/feeds">Feeds</a>
-    </li>
-
-    <li class="navbar-item">
-      <a class="navbar-link" href="/logout" data-bypass>Logout</a>
-    </li>
-  {{/render_if_authenticated}}
-
-  </ul>
+  {{> partials/menu/list}}
 </div>
