@@ -10,6 +10,7 @@ let app = new App({
     routes,
     templates,
     $menu: $('#menu'),
+    $loader: $('#loader'),
     $container: $('#content')
 });
 

@@ -5,17 +5,24 @@ import Fetcher from 'app/fetcher';
 import Router from 'app/router';
 import TemplateEngine from 'app/engine';
 
+const LOAD_DELAY = 1000;
+
 class App extends Backbone.Model {
 
     constructor(options) {
         super(options);
+
+        this._loadTimer = null;
+        this.$loader = options.$loader;
+        this.$container = options.$container;
 
         this.fetcher = this.createFetcher();
         this.menuView = this.createMenuView(options);
         this.router = this.createRouter(options);
         this.templateEngine = this.createTemplateEngine(options);
 
-        this.listenTo(this.router, 'route', this.onRouteChange);
+        this.listenTo(this.router, 'route:start', this.onRouteStart);
+        this.listenTo(this.router, 'route:end', this.onRouteEnd);
     }
 
     createMenuView(options) {
@@ -44,10 +51,35 @@ class App extends Backbone.Model {
         Backbone.history.start({ pushState: true });
     }
 
-    onRouteChange(link) {
+    onRouteStart(link) {
+        this.startLoadTimer();
         this.menuView.setActive(link);
     }
 
+    onRouteEnd() {
+        this.stopLoadTimer();
+    }
+
+    startLoadTimer() {
+        this._loadTimer = window.setTimeout(this.showLoader.bind(this), LOAD_DELAY);
+    }
+
+    stopLoadTimer() {
+        window.clearTimeout(this._loadTimer);
+        this._loadTimer = null;
+
+        this.hideLoader();
+    }
+
+    showLoader() {
+        this.$loader.show();
+        this.$container.addClass('loading');
+    }
+
+    hideLoader() {
+        this.$loader.hide();
+        this.$container.removeClass('loading');
+    }
 }
 
 export default App;

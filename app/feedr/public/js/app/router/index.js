@@ -38,7 +38,7 @@ class Router extends Backbone.Router {
     }
 
     registerRoute(route, spec) {
-        this.route(route, route, buildRoutehandler(this, spec));
+        this.route(route, route, buildRoutehandler(this, route, spec));
     }
 
     show(view) {
@@ -49,7 +49,6 @@ class Router extends Backbone.Router {
         this.currentView = view;
         this.$container.html(view.render().$el);
     }
-
 }
 
 export default Router;

@@ -18,8 +18,19 @@ html, body {
     background-color: $background-color;
 }
 
+#loader {
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+}
+
 /* CONTENT */
 
 #content {
     margin-top: 2rem;
+    &.loading {
+        opacity: 0.5;
+    }
 }
