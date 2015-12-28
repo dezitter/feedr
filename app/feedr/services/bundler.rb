@@ -10,7 +10,7 @@ module Feedr
 
       def bundle
         make_js_dist_dir()
-        sh "#{browserify_cmd} #{@entry} -g #{global_transform} -o #{outfile}"
+        sh browserify_cmd
       end
 
       def clean
@@ -18,15 +18,32 @@ module Feedr
       end
 
       def watch
-        sh "#{watchify_cmd} #{@entry} -g #{global_transform} -o #{outfile} -v"
+        sh watchify_cmd
       end
 
     private
       def browserify_cmd
+        [
+          "#{browserify_bin} #{@entry}",
+          "-g #{global_transform}",
+          "-o #{outfile}"
+        ].join(' ')
+      end
+
+      def browserify_bin
         "#{node_bin}/browserify"
       end
 
       def watchify_cmd
+        [
+          "#{watchify_bin} #{@entry}",
+          "-g #{global_transform}",
+          "-o #{outfile}",
+          "-v"
+        ].join(' ')
+      end
+
+      def watchify_bin
         "#{node_bin}/watchify"
       end
 
