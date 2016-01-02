@@ -6,7 +6,7 @@ class FormActionView extends FormView {
 
     handleSubmit() {
         let action = this.$el.attr('action');
-        let endpoint = `/api${action}`;
+        let endpoint = action;
 
         return api.post(endpoint)
                   .then(() => this.app.router.reload());

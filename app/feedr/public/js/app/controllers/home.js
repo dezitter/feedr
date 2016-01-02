@@ -6,7 +6,7 @@ class HomeController extends BaseController {
     index() {
         let options = { query: { limit: 10 } };
 
-        return this.fetch('/api/entries/all', options)
+        return this.fetch('/entries/all', options)
                    .then(res => {
                        return { collection: new EntriesCollection(res.entries) };
                    });

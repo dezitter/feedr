@@ -1,26 +1,30 @@
+require_relative './base'
+
 module Feedr
-  class App < Sinatra::Base
+  module Api
+    class Entry < Base
 
-    get '/api/entries/all' do
-      options = { limit: params[:limit] }
-      json({ entries: EntryRepository.list(options) })
+      get '/entries/all' do
+        entries = EntryRepository.list(limit: params[:limit])
+        respond(entries: entries)
+      end
+
+      get '/entries/starred' do
+        respond(entries: EntryRepository.starred)
+      end
+
+      post '/entries/mark-as-read' do
+        respond(EntryRepository.mark_all_as_read)
+      end
+
+      post '/entry/:id/star' do |id|
+        respond(entry: EntryRepository.star(id))
+      end
+
+      post '/entry/:id/unstar' do |id|
+        respond(entry: EntryRepository.unstar(id))
+      end
+
     end
-
-    get '/api/entries/starred' do
-      json({ entries: EntryRepository.starred() })
-    end
-
-    post '/api/entries/mark-as-read' do
-      json EntryRepository.mark_all_as_read
-    end
-
-    post '/api/entry/:id/star' do |id|
-      json ({ entry: EntryRepository.star(id) })
-    end
-
-    post '/api/entry/:id/unstar' do |id|
-      json ({ entry: EntryRepository.unstar(id) })
-    end
-
   end
 end

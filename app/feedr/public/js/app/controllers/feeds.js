@@ -5,14 +5,14 @@ import FeedsCollection from 'app/collections/feeds';
 class FeedsController extends BaseController {
 
     index() {
-        return this.fetch('/api/feeds')
+        return this.fetch('/feeds')
                    .then(res => {
                        return { collection: new FeedsCollection(res.feeds) };
                    });
     }
 
     get(id) {
-        return this.fetch(`/api/feed/${id}`)
+        return this.fetch(`/feed/${id}`)
                    .then(res => {
                        return { model: new FeedModel(res.feed) };
                    });

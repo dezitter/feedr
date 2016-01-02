@@ -1,27 +1,22 @@
+require_relative'./base'
+
 module Feedr
-  class App < Sinatra::Base
+  module Controller
+    class Feed < Base
 
-    post '/feed' do
-      FeedRepository.create(*feed_params)
+      get '/feeds' do
+        handlebars :feeds, :locals => data.merge(title: 'Feeds')
+      end
 
-      redirect back
+      get '/feed/:id' do |id|
+        feed_title = data[:feed][:title]
+        handlebars :feed, :locals => data.merge(title: "Feed - #{feed_title}")
+      end
+
+      post '/feed' do
+        redirect back
+      end
+
     end
-
-    get '/feeds' do
-      handlebars :feeds, :locals => {
-        title: 'Feeds',
-        feeds: FeedRepository.list()
-      }
-    end
-
-    get '/feed/:id' do |id|
-      feed = FeedRepository.find(id)
-
-      handlebars :feed, :locals => {
-        title: "Feed - #{feed[:title]}",
-        feed: feed
-      }
-    end
-
   end
 end

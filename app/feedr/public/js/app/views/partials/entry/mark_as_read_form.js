@@ -5,7 +5,7 @@ import FormView from '../form';
 class MarkAsReadFormView extends FormView {
 
     handleSubmit() {
-        return api.post('/api/entries/mark-as-read')
+        return api.post('/entries/mark-as-read')
                   .then(() => this.app.router.reload());
     }
 }

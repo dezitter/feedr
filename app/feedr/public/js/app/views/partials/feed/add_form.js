@@ -8,7 +8,7 @@ class AddFeedFormView extends FormView {
         let $input = this.$('input[type="url"]');
         let url = $input.val();
 
-        return api.post('/api/feed', { url })
+        return api.post('/feed', { url })
                   .then(() => {
                       this.app.router.navigate('/feeds', { trigger: true });
                   });

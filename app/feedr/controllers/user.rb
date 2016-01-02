@@ -1,44 +1,46 @@
+require_relative'./base'
+
 module Feedr
-  class App < Sinatra::Base
+  module Controller
+    class User < Base
 
-    get '/login' do
-      redirect to('/') if is_authenticated?
+      get '/login' do
+        redirect to('/') if is_authenticated?
+        handlebars :login, :locals => { title: 'Login' }
+      end
 
-      handlebars :login, locals: { title: 'Login' }
-    end
+      post '/login' do
+        halt 400, "Invalid login or password" unless is_user_params_valid?
 
-    post '/login' do
-      halt 400, "Invalid login or password" unless is_user_params_valid?
+        user = UserRepository.authenticate(*user_params)
 
-      user = UserRepository.authenticate(*user_params)
+        if user
+          init_session(user.login)
+          redirect to('/')
+        else
+          redirect to('/login')
+        end
+      end
 
-      if user
+      get '/signup' do
+        redirect to('/') if is_authenticated?
+        handlebars :signup, :locals => { title: 'Signup' }
+      end
+
+      post '/signup' do
+        halt 400, "Invalid login or password" unless is_user_params_valid?
+        halt 400, "Password mismatch" unless is_password_match?
+
+        user = UserRepository.create(*user_params)
         init_session(user.login)
         redirect to('/')
-      else
+      end
+
+      get '/logout' do
+        clear_session
         redirect to('/login')
       end
+
     end
-
-    get '/signup' do
-      redirect to('/') if is_authenticated?
-
-      handlebars :signup, locals: { title: 'Signup' }
-    end
-
-    post '/signup' do
-      halt 400, "Invalid login or password" unless is_user_params_valid?
-      halt 400, "Password mismatch" unless is_password_match?
-
-      user = UserRepository.create(*user_params)
-      init_session(user.login)
-      redirect to('/')
-    end
-
-    get '/logout' do
-      clear_session
-      redirect to('/login')
-    end
-
   end
 end

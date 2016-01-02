@@ -1,17 +1,21 @@
+require_relative './base'
+
 module Feedr
-  class App < Sinatra::Base
+  module Api
+    class Feed < Base
 
-    get '/api/feeds' do
-      json({ feeds: FeedRepository.list() })
+      get '/feeds' do
+        respond(feeds: FeedRepository.list())
+      end
+
+      get '/feed/:id' do |id|
+        respond(feed: FeedRepository.find(id))
+      end
+
+      post '/feed' do
+        respond(feed: FeedRepository.create(*feed_params))
+      end
+
     end
-
-    get '/api/feed/:id' do |id|
-      json({ feed: FeedRepository.find(id) })
-    end
-
-    post '/api/feed' do
-      json ({ feed: FeedRepository.create(*feed_params) })
-    end
-
   end
 end

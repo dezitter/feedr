@@ -1,37 +1,29 @@
+require_relative'./base'
+
 module Feedr
-  class App < Sinatra::Base
+  module Controller
+    class Entry < Base
 
-    get '/entries/all' do
-      handlebars :entries, :locals => {
-        title: 'All',
-        entries: EntryRepository.list()
-      }
+      get '/entries/all' do
+        handlebars :entries, :locals => data.merge(title: 'All')
+      end
+
+      get '/entries/starred' do
+        handlebars :entries, :locals => data.merge(title: 'Starred')
+      end
+
+      post '/entries/mark-as-read' do
+        redirect back
+      end
+
+      post '/entry/:id/star' do |id|
+        redirect back
+      end
+
+      post '/entry/:id/unstar' do |id|
+        redirect back
+      end
+
     end
-
-    get '/entries/starred' do
-      handlebars :entries, :locals => {
-        title: 'Starred',
-        entries: EntryRepository.starred()
-      }
-    end
-
-    post '/entries/mark-as-read' do
-      EntryRepository.mark_all_as_read
-
-      redirect back
-    end
-
-    post '/entry/:id/star' do |id|
-      EntryRepository.star(id)
-
-      redirect back
-    end
-
-    post '/entry/:id/unstar' do |id|
-      EntryRepository.unstar(id)
-
-      redirect back
-    end
-
   end
 end
