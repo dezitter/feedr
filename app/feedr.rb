@@ -29,6 +29,7 @@ module Feedr
   class App < Sinatra::Base
     set :root, File.join(File.dirname(__FILE__), 'feedr')
     set :dist, File.join(settings.root, '..', '..', 'dist')
+    set :cache_control, "public, max-age=#{60 * 60 * 24 * 7 * 4}"
 
     use Rack::PostBodyContentTypeParser
     use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
@@ -43,17 +44,12 @@ module Feedr
     use Rack::Static, {
       urls: ['/assets'],
       root: File.join(settings.root, '/public'),
-      header_rules: [
-        [:all,  { 'Cache-Control' => "public, max-age=#{60 * 60 * 24 * 7 * 4}"}]
-      ]
+      header_rules: [[:all, { 'Cache-Control' => settings.cache_control }]]
     }
     use Rack::Static, {
       urls: ['/css', '/js'],
       root: settings.dist,
-      header_rules: [
-        ['js',  { 'Cache-Control' => "public, max-age=#{60 * 60 * 24 * 7 * 4}"}],
-        ['css', { 'Cache-Control' => "public, max-age=#{60 * 60 * 24 * 7 * 4}"}]
-      ]
+      header_rules: [[:all, { 'Cache-Control' => settings.cache_control }]]
     }
 
     use Api::Entry
