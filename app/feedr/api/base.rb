@@ -10,6 +10,12 @@ module Feedr
         set_data(hash)
         pass
       end
+
+      before do
+        if accept_json? and not is_authenticated?
+          raise "Unauthorized"
+        end
+      end
     end
   end
 end

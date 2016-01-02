@@ -12,6 +12,12 @@ module Feedr
       set :handlebars, {
         :templates => File.join(settings.root, 'templates')
       }
+
+      before do
+        if is_route_restricted? and not is_authenticated?
+          redirect to('/login')
+        end
+      end
     end
   end
 end

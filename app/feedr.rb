@@ -34,12 +34,6 @@ module Feedr
     use Rack::PostBodyContentTypeParser
     use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
 
-    before do
-      if is_route_restricted? and not is_authenticated?
-        redirect to('/login')
-      end
-    end
-
     use Rack::Deflater
     use Rack::Static, {
       urls: ['/assets'],
