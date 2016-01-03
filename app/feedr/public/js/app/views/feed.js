@@ -1,10 +1,22 @@
-import BaseView from './base';
+import CompositeView from 'app/views/composite';
+import FormActionView from 'app/views/partials/entry/form_action';
 
-class FeedsView extends BaseView {
+class FeedView extends CompositeView {
 
     constructor(options) {
         super(options);
         this.templateName = 'feed';
+    }
+
+    render() {
+        super.render();
+
+        this.$('.feedr-form-action')
+            .each((i, el) => {
+                this.attachChild(FormActionView, this.$(el));
+            });
+
+        return this;
     }
 
     getTemplateData() {
@@ -12,4 +24,4 @@ class FeedsView extends BaseView {
     }
 }
 
-export default FeedsView;
+export default FeedView;
