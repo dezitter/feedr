@@ -16,6 +16,10 @@ module Feedr
         respond(feed: FeedRepository.create(*feed_params))
       end
 
+      post '/feed/:id/delete' do |id|
+        respond(feed: FeedRepository.delete(id))
+      end
+
     end
   end
 end

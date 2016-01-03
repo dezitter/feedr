@@ -13,7 +13,7 @@ class EntriesView extends CompositeView {
         super.render();
 
         this.attachChild(MarkAsReadFormView, 'form.feedr-mark-as-read');
-        this.$('.feedr-action-star, .feedr-action-unstar')
+        this.$('.feedr-form-action')
             .each((i, el) => {
                 this.attachChild(FormActionView, this.$(el));
             });

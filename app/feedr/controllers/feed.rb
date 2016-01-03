@@ -17,6 +17,10 @@ module Feedr
         redirect back
       end
 
+      post '/feed/:id/delete' do
+        redirect back
+      end
+
     end
   end
 end

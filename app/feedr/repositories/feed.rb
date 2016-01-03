@@ -5,6 +5,15 @@ module Feedr
       Feed.create(url: url).to_hash
     end
 
+    def self.delete(feed_id)
+      feed = Feed[feed_id]
+
+      feed.entries_dataset.destroy
+      feed.destroy
+
+      feed.to_hash
+    end
+
     def self.list
       created_at_order = Sequel.desc(:created_at)
 
