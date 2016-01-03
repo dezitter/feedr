@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 
+import ErrorView from 'app/views/error';
 import MenuView from 'app/views/menu';
 import Fetcher from 'app/fetcher';
 import Router from 'app/router';
@@ -21,8 +22,12 @@ class App extends Backbone.Model {
         this.router = this.createRouter(options);
         this.templateEngine = this.createTemplateEngine(options);
 
-        this.listenTo(this.router, 'route:start', this.onRouteStart);
-        this.listenTo(this.router, 'route:end', this.onRouteEnd);
+        this.on('error', this.onError);
+        this.listenTo(this.router, {
+            'route:start': this.onRouteStart,
+            'route:end': this.onRouteEnd,
+            'error': this.onError
+        });
     }
 
     createMenuView(options) {
@@ -79,6 +84,16 @@ class App extends Backbone.Model {
     hideLoader() {
         this.$loader.hide();
         this.$container.removeClass('loading');
+    }
+
+    onError(error) {
+        let model = new Backbone.Model(error);
+        let errorView = new ErrorView({
+            app: this,
+            model: model
+        });
+
+        this.router.show(errorView);
     }
 }
 

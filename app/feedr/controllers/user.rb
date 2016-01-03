@@ -18,7 +18,7 @@ module Feedr
           init_session(user.login)
           redirect to('/')
         else
-          redirect to('/login')
+          raise "Bad login/password combination."
         end
       end
 

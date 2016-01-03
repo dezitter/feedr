@@ -18,6 +18,12 @@ module Feedr
           redirect to('/login')
         end
       end
+
+      error do
+        handlebars :error, :locals => {
+          message: env['sinatra.error'].message
+        }
+      end
     end
   end
 end

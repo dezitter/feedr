@@ -4,6 +4,8 @@ module Feedr
       helpers Sinatra::JSON
       helpers ::Feedr::Helpers
 
+      set :show_exceptions, false
+
       def respond(hash)
         return json(hash) if accept_json?
 
@@ -15,6 +17,10 @@ module Feedr
         if accept_json? and not is_authenticated?
           raise "Unauthorized"
         end
+      end
+
+      error do
+        json(message: env['sinatra.error'].message)
       end
     end
   end

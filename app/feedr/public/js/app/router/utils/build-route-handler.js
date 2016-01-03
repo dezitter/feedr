@@ -23,6 +23,9 @@ export function buildRoutehandler(router, route, spec) {
 
         function onError(err) {
             console.error(err);
+
+            router.trigger('error', err.response.body);
+            router.trigger('route:end', route);
         }
     };
 }
