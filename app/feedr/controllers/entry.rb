@@ -12,6 +12,10 @@ module Feedr
         handlebars :entries, :locals => data.merge(title: 'Starred')
       end
 
+      get '/entries/archive' do
+        handlebars :archive, :locals => data.merge(title: 'Archive')
+      end
+
       post '/entries/mark-as-read' do
         redirect back
       end

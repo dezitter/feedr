@@ -1,5 +1,6 @@
 import HomeView from 'app/views/home';
 import EntriesView from 'app/views/entries';
+import ArchiveView from 'app/views/archive';
 import FeedView from 'app/views/feed';
 import FeedsView from 'app/views/feeds';
 
@@ -25,6 +26,12 @@ export default {
         view: EntriesView,
         controller: EntriesController,
         action: 'starred'
+    },
+
+    'entries/archive': {
+        view: ArchiveView,
+        controller: EntriesController,
+        action: 'archive'
     },
 
     'feeds': {

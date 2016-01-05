@@ -13,6 +13,11 @@ module Feedr
         respond(entries: EntryRepository.starred)
       end
 
+      get '/entries/archive' do
+        entries = EntryRepository.read
+        respond(entries: entries)
+      end
+
       post '/entries/mark-as-read' do
         respond(EntryRepository.mark_all_as_read)
       end
