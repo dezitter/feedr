@@ -2,38 +2,47 @@ module Feedr
   class EntryRepository
     @@PUBLISHED_ORDER = Sequel.desc(:published)
 
-    def self.find(id)
+    def initialize(user)
+      @user = user
+    end
+
+    def find(id)
       Entry[id]
     end
 
-    def self.star(id)
+    def star(id)
       self.find(id).update(starred: true)
     end
 
-    def self.unstar(id)
+    def unstar(id)
       self.find(id).update(starred: false)
     end
 
-    def self.list(options={})
+    def list(options={})
+
       Entry.order(@@PUBLISHED_ORDER)
            .where(options[:where])
            .limit(options[:limit])
+           .join(:subscriptions, {
+             :feed_id => :feed_id,
+             :user_id => @user.id
+           })
            .all
     end
 
-    def self.starred(options={})
+    def starred(options={})
       self.list options.merge(where: { starred: true })
     end
 
-    def self.read(options={})
+    def read(options={})
       self.list options.merge(where: { read: true })
     end
 
-    def self.unread(options={})
+    def unread(options={})
       self.list options.merge(where: { read: false })
     end
 
-    def self.mark_all_as_read
+    def mark_all_as_read
       Entry.where(read: false).update(read: true)
     end
 
