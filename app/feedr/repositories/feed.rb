@@ -1,36 +1,24 @@
 module Feedr
   class FeedRepository
-
-    def self.create(url)
-      Feed.create(url: url).to_hash
-    end
-
-    def self.delete(feed_id)
-      feed = Feed[feed_id]
-
-      feed.entries_dataset.destroy
-      feed.destroy
-
-      feed.to_hash
-    end
-
-    def self.list
-      created_at_order = Sequel.desc(:created_at)
-
-      Feed.order(created_at_order).all.map(&:to_hash)
-    end
+    @@CREATED_AT_ORDER = Sequel.desc(:created_at)
 
     def self.find(id)
-      feed = Feed[id]
-      entries = feed.entries.map do |entry|
-        entry.to_hash.merge(feed_title: feed.title)
-      end
-
-      feed.to_hash.merge(entries: entries)
+      Feed[id]
     end
 
-    def self.to_hash()
-      Feed.to_hash(:id)
+    def self.create(params)
+      Feed.create(params)
+    end
+
+    def self.delete(id, user)
+      feed = self.find(id)
+      user.remove_feed(feed)
+    end
+
+    def self.list(options={})
+      Feed.order(@@CREATED_AT_ORDER)
+          .where(options[:where])
+          .all
     end
 
   end

@@ -22,7 +22,6 @@ require 'feedr/api/feed'
 
 require 'feedr/controllers/entry'
 require 'feedr/controllers/feed'
-require 'feedr/controllers/home'
 require 'feedr/controllers/user'
 
 module Feedr
@@ -51,7 +50,6 @@ module Feedr
 
     use Controller::Entry
     use Controller::Feed
-    use Controller::Home
     use Controller::User
   end
 end

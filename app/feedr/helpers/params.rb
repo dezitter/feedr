@@ -6,7 +6,7 @@ module Feedr
     end
 
     def feed_params
-      return params[:url]
+      return { url: params[:url] }
     end
 
     def is_user_params_valid?

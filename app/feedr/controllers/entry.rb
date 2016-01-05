@@ -4,6 +4,10 @@ module Feedr
   module Controller
     class Entry < Base
 
+      get '/' do
+        handlebars :'pages/home', :locals => data.merge(title: 'Home')
+      end
+
       get '/entries/all' do
         handlebars :entries, :locals => data.merge(title: 'All')
       end

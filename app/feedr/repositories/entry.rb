@@ -1,52 +1,40 @@
 module Feedr
   class EntryRepository
+    @@PUBLISHED_ORDER = Sequel.desc(:published)
 
     def self.find(id)
-      Entry[id].to_hash
+      Entry[id]
     end
 
     def self.star(id)
-      Entry[id].update(starred: true).to_hash
+      self.find(id).update(starred: true)
     end
 
     def self.unstar(id)
-      Entry[id].update(starred: false).to_hash
+      self.find(id).update(starred: false)
     end
 
     def self.list(options={})
-      feed_map = FeedRepository.to_hash
-
-      published_order = Sequel.desc(:published)
-      query = Entry.order(published_order)
-                   .where(options[:where])
-                   .limit(options[:limit])
-
-      query.all.map do |entry|
-        feed = feed_map[entry.feed_id]
-
-        entry.to_hash.merge(feed_title: feed.title)
-      end
+      Entry.order(@@PUBLISHED_ORDER)
+           .where(options[:where])
+           .limit(options[:limit])
+           .all
     end
 
     def self.starred(options={})
-      options = options.merge(where: { starred: true })
-      return self.list(options)
+      self.list options.merge(where: { starred: true })
     end
 
     def self.read(options={})
-      options = options.merge(where: { read: true })
-      return self.list(options)
+      self.list options.merge(where: { read: true })
     end
 
     def self.unread(options={})
-      options = options.merge(where: { read: false })
-      return self.list(options)
+      self.list options.merge(where: { read: false })
     end
 
     def self.mark_all_as_read
-      return {
-        updated: Entry.where(read: false).update(read: true)
-      }
+      Entry.where(read: false).update(read: true)
     end
 
   end
