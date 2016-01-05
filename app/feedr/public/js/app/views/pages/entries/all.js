@@ -1,6 +1,6 @@
 import CompositeView from 'app/views/composite';
-import FormActionView from 'app/views/partials/entry/form_action';
-import MarkAsReadFormView from 'app/views/partials/entry/mark_as_read_form';
+import FormActionView from 'app/views/partials/entry/form/action';
+import MarkAsReadFormView from 'app/views/partials/entry/form/mark_as_read';
 
 class EntriesView extends CompositeView {
 

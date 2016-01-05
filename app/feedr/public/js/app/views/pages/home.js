@@ -1,6 +1,6 @@
-import AddFeedFormView from 'app/views/partials/feed/add_form';
+import AddFeedFormView from 'app/views/partials/feed/form/add';
 import CompositeView from 'app/views/composite';
-import FormActionView from 'app/views/partials/entry/form_action';
+import FormActionView from 'app/views/partials/entry/form/action';
 
 class HomeView extends CompositeView {
 

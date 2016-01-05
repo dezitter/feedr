@@ -1,6 +1,6 @@
 import api from 'app/api';
 
-import FormView from '../form';
+import FormView from '../../form';
 
 class AddFeedFormView extends FormView {
 

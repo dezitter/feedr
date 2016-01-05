@@ -1,5 +1,5 @@
 import CompositeView from 'app/views/composite';
-import FormActionView from 'app/views/partials/entry/form_action';
+import FormActionView from 'app/views/partials/entry/form/action';
 
 class EntriesView extends CompositeView {
 
