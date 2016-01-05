@@ -1,15 +1,15 @@
 module Feedr
   class UserRepository
 
-    def self.create(login, password)
+    def create(login, password)
       User.create(login: login, password: password)
     end
 
-    def self.find(login)
+    def find(login)
       User.find(login: login)
     end
 
-    def self.authenticate(login, password)
+    def authenticate(login, password)
       user = self.find(login)
 
       return user if user and user.compare_password(password)

@@ -31,7 +31,7 @@ module Feedr
 
     def current_user
       login = session[session_user_key]
-      return UserRepository.find(login) unless login.nil?
+      return UserRepository.new.find(login) unless login.nil?
     end
 
   end

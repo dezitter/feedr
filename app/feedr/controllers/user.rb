@@ -12,7 +12,7 @@ module Feedr
       post '/login' do
         halt 400, "Invalid login or password" unless is_user_params_valid?
 
-        user = UserRepository.authenticate(*user_params)
+        user = user_repository.authenticate(*user_params)
 
         if user
           init_session(user.login)
@@ -31,7 +31,7 @@ module Feedr
         halt 400, "Invalid login or password" unless is_user_params_valid?
         halt 400, "Password mismatch" unless is_password_match?
 
-        user = UserRepository.create(*user_params)
+        user = user_repository.create(*user_params)
         init_session(user.login)
         redirect to('/')
       end
@@ -39,6 +39,11 @@ module Feedr
       get '/logout' do
         clear_session
         redirect to('/login')
+      end
+
+    private
+      def user_repository
+        UserRepository.new
       end
 
     end
