@@ -5,7 +5,7 @@ class ArchiveView extends CompositeView {
 
     constructor(options) {
         super(options);
-        this.templateName = 'pages/archive';
+        this.templateName = 'pages/entries/archive';
     }
 
     render() {

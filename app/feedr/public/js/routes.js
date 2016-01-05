@@ -1,8 +1,9 @@
-import HomeView from 'app/views/pages/home';
-import EntriesView from 'app/views/pages/entries';
-import ArchiveView from 'app/views/pages/archive';
+import AllEntriesView from 'app/views/pages/entries/all';
+import ArchiveEntriesView from 'app/views/pages/entries/archive';
 import FeedView from 'app/views/pages/feed';
 import FeedsView from 'app/views/pages/feeds';
+import HomeView from 'app/views/pages/home';
+import StarredEntriesView from 'app/views/pages/entries/starred';
 
 import EntriesController from 'app/controllers/entries';
 import FeedsController from 'app/controllers/feeds';
@@ -17,19 +18,19 @@ export default {
     },
 
     'entries/all': {
-        view: EntriesView,
+        view: AllEntriesView,
         controller: EntriesController,
         action: 'all'
     },
 
     'entries/starred': {
-        view: EntriesView,
+        view: StarredEntriesView,
         controller: EntriesController,
         action: 'starred'
     },
 
     'entries/archive': {
-        view: ArchiveView,
+        view: ArchiveEntriesView,
         controller: EntriesController,
         action: 'archive'
     },
