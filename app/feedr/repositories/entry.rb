@@ -28,8 +28,19 @@ module Feedr
       end
     end
 
-    def self.starred
-      return self.list(where: { starred: true })
+    def self.starred(options={})
+      options = options.merge(where: { starred: true })
+      return self.list(options)
+    end
+
+    def self.read(options={})
+      options = options.merge(where: { read: true })
+      return self.list(options)
+    end
+
+    def self.unread(options={})
+      options = options.merge(where: { read: false })
+      return self.list(options)
     end
 
     def self.mark_all_as_read

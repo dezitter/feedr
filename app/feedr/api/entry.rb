@@ -5,7 +5,7 @@ module Feedr
     class Entry < Base
 
       get '/entries/all' do
-        entries = EntryRepository.list(limit: params[:limit])
+        entries = EntryRepository.unread(limit: params[:limit])
         respond(entries: entries)
       end
 

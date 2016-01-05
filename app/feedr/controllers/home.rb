@@ -7,7 +7,7 @@ module Feedr
       get '/' do
         handlebars :home, :locals => {
           title: 'Home',
-          entries: EntryRepository.list(limit: 10)
+          entries: EntryRepository.unread(limit: 10)
         }
       end
 
