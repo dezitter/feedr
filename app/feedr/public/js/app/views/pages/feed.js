@@ -5,7 +5,7 @@ class FeedView extends CompositeView {
 
     constructor(options) {
         super(options);
-        this.templateName = 'feed';
+        this.templateName = 'pages/feed';
     }
 
     render() {

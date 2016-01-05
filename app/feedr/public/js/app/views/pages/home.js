@@ -6,7 +6,7 @@ class HomeView extends CompositeView {
 
     constructor(options) {
         super(options);
-        this.templateName = 'home';
+        this.templateName = 'pages/home';
     }
 
     render() {

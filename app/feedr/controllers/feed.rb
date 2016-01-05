@@ -5,12 +5,12 @@ module Feedr
     class Feed < Base
 
       get '/feeds' do
-        handlebars :feeds, :locals => data.merge(title: 'Feeds')
+        handlebars :'pages/feeds', :locals => data.merge(title: 'Feeds')
       end
 
       get '/feed/:id' do |id|
         feed_title = data[:feed][:title]
-        handlebars :feed, :locals => data.merge(title: "Feed - #{feed_title}")
+        handlebars :'pages/feed', :locals => data.merge(title: "Feed - #{feed_title}")
       end
 
       post '/feed' do

@@ -1,18 +1,16 @@
-import AddFeedFormView from './partials/feed/add_form';
-import CompositeView from './composite';
+import CompositeView from 'app/views/composite';
 import FormActionView from 'app/views/partials/entry/form_action';
 
-class FeedsView extends CompositeView {
+class ArchiveView extends CompositeView {
 
     constructor(options) {
         super(options);
-        this.templateName = 'feeds';
+        this.templateName = 'pages/archive';
     }
 
     render() {
         super.render();
 
-        this.attachChild(AddFeedFormView, 'form.feedr-add-feed');
         this.$('.feedr-form-action')
             .each((i, el) => {
                 this.attachChild(FormActionView, this.$(el));
@@ -22,8 +20,8 @@ class FeedsView extends CompositeView {
     }
 
     getTemplateData() {
-        return { feeds: this.collection.toJSON() };
+        return { entries: this.collection.toJSON() };
     }
 }
 
-export default FeedsView;
+export default ArchiveView;

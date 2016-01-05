@@ -20,7 +20,7 @@ module Feedr
       end
 
       error do
-        handlebars :error, :locals => {
+        handlebars :'pages/error', :locals => {
           message: env['sinatra.error'].message
         }
       end

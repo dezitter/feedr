@@ -6,7 +6,7 @@ module Feedr
 
       get '/login' do
         redirect to('/') if is_authenticated?
-        handlebars :login, :locals => { title: 'Login' }
+        handlebars :'pages/login', :locals => { title: 'Login' }
       end
 
       post '/login' do
@@ -24,7 +24,7 @@ module Feedr
 
       get '/signup' do
         redirect to('/') if is_authenticated?
-        handlebars :signup, :locals => { title: 'Signup' }
+        handlebars :'pages/signup', :locals => { title: 'Signup' }
       end
 
       post '/signup' do

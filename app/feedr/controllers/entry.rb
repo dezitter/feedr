@@ -9,15 +9,15 @@ module Feedr
       end
 
       get '/entries/all' do
-        handlebars :entries, :locals => data.merge(title: 'All')
+        handlebars :'pages/entries', :locals => data.merge(title: 'All')
       end
 
       get '/entries/starred' do
-        handlebars :entries, :locals => data.merge(title: 'Starred')
+        handlebars :'pages/entries', :locals => data.merge(title: 'Starred')
       end
 
       get '/entries/archive' do
-        handlebars :archive, :locals => data.merge(title: 'Archive')
+        handlebars :'pages/archive', :locals => data.merge(title: 'Archive')
       end
 
       post '/entries/mark-as-read' do

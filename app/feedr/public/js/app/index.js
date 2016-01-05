@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-import ErrorView from 'app/views/error';
+import ErrorView from 'app/views/pages/error';
 import MenuView from 'app/views/menu';
 import Fetcher from 'app/fetcher';
 import Router from 'app/router';

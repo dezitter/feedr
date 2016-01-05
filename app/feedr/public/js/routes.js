@@ -1,8 +1,8 @@
-import HomeView from 'app/views/home';
-import EntriesView from 'app/views/entries';
-import ArchiveView from 'app/views/archive';
-import FeedView from 'app/views/feed';
-import FeedsView from 'app/views/feeds';
+import HomeView from 'app/views/pages/home';
+import EntriesView from 'app/views/pages/entries';
+import ArchiveView from 'app/views/pages/archive';
+import FeedView from 'app/views/pages/feed';
+import FeedsView from 'app/views/pages/feeds';
 
 import EntriesController from 'app/controllers/entries';
 import FeedsController from 'app/controllers/feeds';
