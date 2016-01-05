@@ -9,8 +9,12 @@ module Feedr
       request.path == '/signup'
     end
 
+    def session_user_key
+      ENV['SESSION_USER_KEY']
+    end
+
     def is_authenticated?
-      not session[ENV['SESSION_USER_KEY']].nil?
+      not session[session_user_key].nil?
     end
 
     def is_route_restricted?
@@ -18,11 +22,16 @@ module Feedr
     end
 
     def init_session(login)
-      session[ENV['SESSION_USER_KEY']] = login
+      session[session_user_key] = login
     end
 
     def clear_session
-      session[ENV['SESSION_USER_KEY']] = nil
+      session[session_user_key] = nil
+    end
+
+    def current_user
+      login = session[session_user_key]
+      return UserRepository.find(login) unless login.nil?
     end
 
   end
