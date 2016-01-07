@@ -7,18 +7,10 @@ class FeedsView extends CompositeView {
     constructor(options) {
         super(options);
         this.templateName = 'pages/feeds';
-    }
-
-    render() {
-        super.render();
-
-        this.attachChild(AddFeedFormView, 'form.feedr-add-feed');
-        this.$('.feedr-form-action')
-            .each((i, el) => {
-                this.attachChild(FormActionView, this.$(el));
-            });
-
-        return this;
+        this.children = {
+            'form.feedr-add-feed': AddFeedFormView,
+            'form.feedr-form-action': FormActionView
+        };
     }
 
     getTemplateData() {

@@ -6,17 +6,9 @@ class ArchiveView extends CompositeView {
     constructor(options) {
         super(options);
         this.templateName = 'pages/entries/archive';
-    }
-
-    render() {
-        super.render();
-
-        this.$('.feedr-form-action')
-            .each((i, el) => {
-                this.attachChild(FormActionView, this.$(el));
-            });
-
-        return this;
+        this.children = {
+            'form.feedr-form-action': FormActionView
+        };
     }
 
     getTemplateData() {

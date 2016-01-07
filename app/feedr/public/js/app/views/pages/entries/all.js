@@ -7,18 +7,10 @@ class EntriesView extends CompositeView {
     constructor(options) {
         super(options);
         this.templateName = 'pages/entries/all';
-    }
-
-    render() {
-        super.render();
-
-        this.attachChild(MarkAsReadFormView, 'form.feedr-mark-as-read');
-        this.$('.feedr-form-action')
-            .each((i, el) => {
-                this.attachChild(FormActionView, this.$(el));
-            });
-
-        return this;
+        this.children = {
+            'form.feedr-form-action': FormActionView,
+            'form.feedr-mark-as-read': MarkAsReadFormView
+        };
     }
 
     getTemplateData() {

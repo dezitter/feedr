@@ -1,30 +1,47 @@
 import _ from 'underscore';
 import BaseView from './base';
 
+function attachChildren(view) {
+    Object.keys(view.children).forEach(function(selector) {
+        let ViewCtor = view.children[selector];
+
+        view.$(selector).each((i, el) => {
+            view.attachChild(el, ViewCtor);
+        });
+    });
+}
+
 class CompositeView extends BaseView {
 
     constructor(options) {
         super(options);
 
-        this.children = [];
+        this.children = {};
+        this._children = [];
     }
 
     remove() {
         _.invoke(this.children, 'remove');
 
-        this.children = [];
+        this._children = [];
 
         return super.remove();
     }
 
-    attachChild(ViewCtor, selector, options={}) {
-        let view = new ViewCtor(Object.assign({
+    attachChild(el, ViewCtor) {
+        let view = new ViewCtor({
             app: this.app,
-            el: this.$(selector)
-        }, options));
+            el: el
+        });
 
-        this.children.push(view);
+        this._children.push(view);
 
+        return this;
+    }
+
+    render() {
+        super.render();
+        attachChildren(this);
         return this;
     }
 }
