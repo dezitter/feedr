@@ -26,7 +26,7 @@ module Feedr
 
     private
       def as_feed_values(feed)
-        entries = feed.entries.map { |entry| entry.as_values }
+        entries = all_as_stateful_values(feed.entries)
         as_values(feed, entries: entries)
       end
 

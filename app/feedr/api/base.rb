@@ -1,3 +1,4 @@
+require 'feedr/api/helpers/entry'
 require 'feedr/api/helpers/values'
 
 module Feedr

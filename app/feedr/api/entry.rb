@@ -40,7 +40,7 @@ module Feedr
     private
       def unread_entries(options={})
         entries = entry_repository.unread(options)
-        all_as_values_with_state(entries)
+        all_as_stateful_values(entries)
       end
 
       def read_entries(options={})
@@ -51,22 +51,6 @@ module Feedr
       def starred_entries(options={})
         entries = entry_repository.starred(options)
         all_as_values(entries)
-      end
-
-      def all_as_values_with_state(entries)
-        @states_hash = entry_repository.states_hash
-
-        all_as_values(entries) { |e| entry_state(e) }
-      end
-
-      def entry_state(entry)
-        if @states_hash.has_key?(entry.id)
-          state = @states_hash[entry.id].values
-          state = { read: state[:read], starred:  state[:starred] }
-        else
-          state = { read: false, starred:  false }
-        end
-        state
       end
 
     end
