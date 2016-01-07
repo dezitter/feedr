@@ -1,19 +1,12 @@
-import CompositeView from 'app/views/composite';
-import FormActionView from 'app/views/partials/entry/form/action';
+import BaseEntriesView from 'app/views/pages/entries/base';
 
-class ArchiveView extends CompositeView {
+class ArchiveView extends BaseEntriesView {
 
     constructor(options) {
         super(options);
         this.templateName = 'pages/entries/archive';
-        this.children = {
-            'form.feedr-form-action': FormActionView
-        };
     }
 
-    getTemplateData() {
-        return { entries: this.collection.toJSON() };
-    }
 }
 
 export default ArchiveView;
