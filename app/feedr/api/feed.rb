@@ -30,10 +30,6 @@ module Feedr
         as_values(feed, entries: entries)
       end
 
-      def all_as_values(feeds)
-        feeds.map(&:values)
-      end
-
     end
   end
 end
