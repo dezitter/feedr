@@ -38,10 +38,6 @@ module Feedr
       end
 
     private
-      def entry_repository
-        EntryRepository.new(current_user)
-      end
-
       def unread_entries(options={})
         entries = entry_repository.unread(options)
         all_as_values_with_state(entries)

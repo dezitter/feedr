@@ -25,10 +25,6 @@ module Feedr
       end
 
     private
-      def feed_repository
-        FeedRepository.new(current_user)
-      end
-
       def as_values(feed)
         entries = feed.entries.map do |entry|
           entry.values.merge(feed_title: feed.title)

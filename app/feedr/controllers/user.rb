@@ -41,11 +41,6 @@ module Feedr
         redirect to('/login')
       end
 
-    private
-      def user_repository
-        UserRepository.new
-      end
-
     end
   end
 end

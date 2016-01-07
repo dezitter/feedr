@@ -7,6 +7,7 @@ require 'feedr/helpers/auth'
 require 'feedr/helpers/data'
 require 'feedr/helpers/handlebars'
 require 'feedr/helpers/params'
+require 'feedr/helpers/repository'
 require 'feedr/helpers/view/init'
 
 require 'feedr/models/user'
