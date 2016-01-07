@@ -23,5 +23,9 @@ module Feedr
       self.entries_dataset.multi_insert(entries)
     end
 
+    def as_values
+      values
+    end
+
   end
 end

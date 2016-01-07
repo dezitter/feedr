@@ -1,8 +1,11 @@
+require 'feedr/api/helpers/values'
+
 module Feedr
   module Api
     class Base < Sinatra::Base
       helpers Sinatra::JSON
       helpers ::Feedr::Helpers
+      helpers ::Feedr::Api::Helpers
 
       set :show_exceptions, false
 

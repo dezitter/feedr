@@ -72,13 +72,8 @@ module Feedr
       def all_as_values(entries)
         entries.map do |entry|
           hash = yield(entry) if block_given?
-          as_values(entry, hash)
+          as_values(entry, hash || {})
         end
-      end
-
-      def as_values(entry, hash)
-        entry.as_values
-             .merge(hash || {})
       end
 
     end
