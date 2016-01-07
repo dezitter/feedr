@@ -1,6 +1,7 @@
 module Feedr
   class User < Sequel::Model
     many_to_many :feeds, { :join_table => :subscriptions }
+    many_to_many :entries, { :join_table => :entries_states }
 
     plugin :timestamps, :update_on_create => true
 

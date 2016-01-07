@@ -6,7 +6,7 @@ module Feedr
 
       set :show_exceptions, false
 
-      def respond(hash)
+      def respond(hash=nil)
         return json(hash) if accept_json?
 
         set_data(hash)

@@ -12,10 +12,12 @@ require 'feedr/helpers/view/init'
 require 'feedr/models/user'
 require 'feedr/models/feed'
 require 'feedr/models/entry'
+require 'feedr/models/entry_state'
 
 require 'feedr/repositories/user'
 require 'feedr/repositories/feed'
 require 'feedr/repositories/entry'
+require 'feedr/repositories/entry_state'
 
 require 'feedr/api/entry'
 require 'feedr/api/feed'
