@@ -2,6 +2,21 @@ module Feedr
   module Api
     module Helpers
 
+      def unread_entries(options={})
+        entries = entry_repository.unread(options)
+        all_as_stateful_values(entries)
+      end
+
+      def read_entries(options={})
+        entries = entry_repository.read(options)
+        all_as_values(entries)
+      end
+
+      def starred_entries(options={})
+        entries = entry_repository.starred(options)
+        all_as_values(entries)
+      end
+
       def all_as_stateful_values(entries)
         @states_hash = entry_repository.states_hash
 
