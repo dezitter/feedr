@@ -77,8 +77,7 @@ module Feedr
       end
 
       def as_values(entry, hash)
-        entry.values
-             .merge(feed_title: entry.feed.title)
+        entry.as_values
              .merge(hash || {})
       end
 

@@ -27,7 +27,7 @@ module Feedr
     private
       def as_values(feed)
         entries = feed.entries.map do |entry|
-          entry.values.merge(feed_title: feed.title)
+          entry.as_values
         end
 
         feed.values.merge(entries: entries)
