@@ -35,6 +35,13 @@ module Feedr
         FileUtils.rm(filename) if File.exist?(filename)
       end
 
+      def dump
+        db = connect
+        db.extension(:schema_dumper)
+
+        return db.dump_schema_migration
+      end
+
     end
   end
 end

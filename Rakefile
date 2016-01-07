@@ -21,9 +21,10 @@ PATHS = {
 
 load 'app/feedr/tasks/build.rake'
 
+load 'app/feedr/tasks/db/drop.rake'
+load 'app/feedr/tasks/db/dump.rake'
 load 'app/feedr/tasks/db/migrate.rake'
 load 'app/feedr/tasks/db/seed.rake'
-load 'app/feedr/tasks/db/drop.rake'
 
 load 'app/feedr/tasks/css/clean.rake'
 load 'app/feedr/tasks/css/compile.rake'
