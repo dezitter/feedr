@@ -14,9 +14,7 @@ module Feedr
       }
 
       before do
-        if is_route_restricted? and not is_authenticated?
-          redirect to('/login')
-        end
+        redirect_if_not_authorized
       end
 
       error do

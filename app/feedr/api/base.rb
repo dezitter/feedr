@@ -19,9 +19,7 @@ module Feedr
       end
 
       before do
-        if accept_json? and not is_authenticated?
-          raise "Unauthorized"
-        end
+        redirect_if_not_authorized
       end
 
       error do
