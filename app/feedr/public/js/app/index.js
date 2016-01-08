@@ -93,6 +93,8 @@ class App extends Backbone.Model {
             model: model
         });
 
+        console.error(error);
+
         this.router.show(errorView);
     }
 }

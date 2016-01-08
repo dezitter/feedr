@@ -17,7 +17,8 @@ class FormView extends BaseView {
 
         this.handleSubmit()
             .catch(err => {
-                this.app.trigger('error', err.response.body);
+                err = (err.response && err.response.body) || err;
+                this.app.trigger('error', err);
             });
     }
 
