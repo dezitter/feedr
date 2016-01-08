@@ -14,6 +14,7 @@ module Feedr
         new_entries = select_new_entries(raw_entries)
 
         @feed.add_entries(new_entries)
+        new_entries
       end
 
     private

@@ -10,6 +10,13 @@ namespace :feed do
   desc "sync all feeds"
   task :sync do
     feeds = Feedr::Feed.all
-    Feedr::Services::FeedsSyncer.new(feeds).sync_all
+    results = Feedr::Services::FeedsSyncer.new(feeds).sync_all
+
+    results.each do |result|
+      feed = result[:feed]
+      new_entries = result[:new_entries]
+
+      puts "#{feed.title}: #{new_entries.size} entries fetched."
+    end
   end
 end

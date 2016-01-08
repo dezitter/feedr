@@ -13,14 +13,18 @@ module Feedr
       end
 
       def sync_all
-        @feeds.each do |feed|
-          @pool.process { sync_one(feed) }
-        end
-
+        threads = @feeds.map { |feed| process_one(feed) }
         @pool.shutdown
+        threads.map(&:result)
       end
 
     private
+      def process_one(feed)
+        @pool.process do
+          { feed: feed, new_entries: sync_one(feed) }
+        end
+      end
+
       def sync_one(feed)
         Feedr::Services::FeedSyncer.new(feed).sync
       end
