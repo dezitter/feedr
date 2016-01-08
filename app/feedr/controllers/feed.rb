@@ -21,6 +21,10 @@ module Feedr
         redirect back
       end
 
+      post '/feed/refresh' do
+        redirect back
+      end
+
     end
   end
 end

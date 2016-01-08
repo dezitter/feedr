@@ -32,5 +32,10 @@ module Feedr
           .all
     end
 
+    def refresh
+      feeds = self.list
+      Services::FeedsSyncer.new(feeds).sync_all
+    end
+
   end
 end

@@ -27,6 +27,8 @@ require 'feedr/controllers/entry'
 require 'feedr/controllers/feed'
 require 'feedr/controllers/user'
 
+require 'feedr/services/syncer/feeds_syncer'
+
 module Feedr
   class App < Sinatra::Base
     set :root, File.join(File.dirname(__FILE__), 'feedr')
